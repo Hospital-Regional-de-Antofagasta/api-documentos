@@ -1,0 +1,44 @@
+[
+  {
+    "numeroPaciente": 1,
+    "fecha": "2021-06-01",
+    "correlativo": 1,
+    "tipo": "DAU"
+  },
+  {
+    "numeroPaciente": 1,
+    "fecha": "2021-06-08",
+    "correlativo": 3,
+    "tipo": "DAU"
+  },
+  {
+    "numeroPaciente": 2,
+    "fecha": "2021-06-07",
+    "correlativo": 1,
+    "tipo": "DAU"
+  },
+  {
+    "numeroPaciente": 1,
+    "fecha": "2021-06-07",
+    "correlativo": 2,
+    "tipo": "DAU"
+  },
+  {
+    "numeroPaciente": 1,
+    "fecha": "2021-06-08",
+    "correlativo": 1,
+    "tipo": "EPICRISIS"
+  },
+  {
+    "numeroPaciente": 2,
+    "fecha": "2021-06-08",
+    "correlativo": 2,
+    "tipo": "EPICRISIS"
+  },
+  {
+    "numeroPaciente": 2,
+    "fecha": "2021-06-06",
+    "correlativo": 2,
+    "tipo": "DAU"
+  }
+]
