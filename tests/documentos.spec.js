@@ -65,8 +65,8 @@ describe("Endpoints documentos", () => {
 
       expect(response.status).toBe(200);
       expect(response.body.length).toBe(documentosDauObtenidos.length);
-      expect(response.body[0].fecha < response.body[1].fecha).toBeTruthy();
-      expect(response.body[1].fecha < response.body[2].fecha).toBeTruthy();
+      expect(response.body[0].fecha > response.body[1].fecha).toBeTruthy();
+      expect(response.body[1].fecha > response.body[2].fecha).toBeTruthy();
     });
     it("Should get documentos tipo EPICRISIS", async () => {
       const token = jwt.sign({ numeroPaciente: 1 }, secret);

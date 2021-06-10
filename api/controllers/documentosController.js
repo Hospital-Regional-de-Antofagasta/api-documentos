@@ -7,7 +7,7 @@ exports.getDocumentos = async (req, res) => {
     const filter = tipo
       ? { numeroPaciente: req.numeroPaciente, tipo }
       : { numeroPaciente: req.numeroPaciente };
-    const documentos = await Documentos.find(filter).sort({ fecha: 1 }).exec();
+    const documentos = await Documentos.find(filter).sort({ fecha: -1 }).exec();
     res.status(200).send(documentos);
   } catch (error) {
     res.status(500).send({ respuesta: mensajes.serverError });
