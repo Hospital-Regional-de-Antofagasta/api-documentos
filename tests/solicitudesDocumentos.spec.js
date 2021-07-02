@@ -3,7 +3,7 @@ const app = require("../api/index");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const SolicitudesDocumentos = require("../api/models/SolicitudesDocumentos");
-const solicitudesDocumentosSeed = require("../api/testSeeds/solicitudesDocumentos.json");
+const solicitudesDocumentosSeed = require("../api/testSeeds/solicitudesDocumentosSeed.json");
 const { mensajes } = require("../api/config");
 
 const request = supertest(app);
