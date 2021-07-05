@@ -17,11 +17,18 @@ exports.checkExistsSolicitudDocumento = async (req, res) => {
   try {
     const numeroPaciente = req.numeroPaciente;
     const { tipoDocumento, correlativoDocumento } = req.params;
-    const filter = { numeroPaciente, tipoDocumento, correlativoDocumento };
+    const filter = {
+      numeroPaciente,
+      tipoDocumento,
+      correlativoDocumento,
+      estado: { $ne: "REALIZADO" },
+    };
     const solicitud = await SolicitudesDocumentos.findOne(filter).exec();
     if (solicitud) return res.status(200).send({ respuesta: true });
     res.status(200).send({ respuesta: false });
   } catch (error) {
+    console.log(error.name)
+    console.log(error.message)
     res.status(500).send({ respuesta: mensajes.serverError });
   }
 };
