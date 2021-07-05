@@ -9,16 +9,17 @@ const SolicitudesDocumentos = mongoose.model(
         type: Number,
         default: 0,
       },
+      anio: {
+        type: Number,
+        default: 0,
+      },
       numeroPaciente: Number,
       correlativoDocumento: Number,
       tipoDocumento: String,
-      respondida: {
-        type: Boolean,
-        default: false,
-      },
-      enviadaHospital: {
-        type: Boolean,
-        default: false,
+      estado: {
+        // posibles estados: PENDIENTE, EN_PROCESO, REALIZADO
+        type: String,
+        default: "PENDIENTE",
       },
     },
     { timestamps: true }

@@ -34,6 +34,11 @@ const newSolicitudDocumento = {
   tipoDocumento: "DAU",
 };
 
+const oldSolicitudDocumento = {
+  correlativoDocumento: 1,
+  tipoDocumento: "DAU",
+};
+
 describe("Endpoints solicitudes documentos", () => {
   describe("Create solicitud documento", () => {
     it("Should not create solicitud documento without token", async () => {
@@ -189,6 +194,17 @@ describe("Endpoints solicitudes documentos", () => {
       const response = await request
         .get(
           `/v1/documentos_paciente/solicitudes/${existingSolicitudDocumento.tipoDocumento}/${existingSolicitudDocumento.correlativoDocumento}`
+        )
+        .set("Authorization", token);
+
+      expect(response.status).toBe(200);
+      expect(response.body).toEqual({ respuesta: true });
+    });
+    it("Should check with existing solicitud", async () => {
+      const token = jwt.sign({ numeroPaciente: 1 }, secret);
+      const response = await request
+        .get(
+          `/v1/documentos_paciente/solicitudes/${oldSolicitudDocumento.tipoDocumento}/${existingSolicitudDocumento.correlativoDocumento}`
         )
         .set("Authorization", token);
 
