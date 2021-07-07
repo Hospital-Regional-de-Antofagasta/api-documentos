@@ -146,7 +146,7 @@ describe("Endpoints solicitudes documentos", () => {
       expect(response.status).toBe(201);
       expect(response.body).toEqual({});
 
-      expect(solicitudCreada.numeroPaciente).toBe(1);
+      expect(solicitudCreada.numeroPaciente).toBeFalsy();
       expect(solicitudCreada.correlativoDocumento).toBe(
         newSolicitudDocumento.correlativoDocumento
       );

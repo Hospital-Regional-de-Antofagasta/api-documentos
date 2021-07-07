@@ -13,7 +13,7 @@ const SolicitudesDocumentos = mongoose.model(
         type: Number,
         default: 0,
       },
-      numeroPaciente: Number,
+      numeroPaciente: { type: Number, select: false },
       correlativoDocumento: Number,
       tipoDocumento: String,
       estado: {
