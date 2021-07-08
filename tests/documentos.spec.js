@@ -77,5 +77,18 @@ describe("Endpoints documentos", () => {
       expect(response.status).toBe(200);
       expect(response.body.length).toBe(1);
     });
+    it("Should get only 5 documentos tipo DAU", async () => {
+      const token = jwt.sign({ numeroPaciente: 1 }, secret);
+      const response = await request
+        .get("/v1/documentos_paciente?tipo=DAU&cantidad=5")
+        .set("Authorization", token);
+
+      expect(response.status).toBe(200);
+      expect(response.body.length).toBe(5);
+      expect(response.body[0].fecha > response.body[1].fecha).toBeTruthy();
+      expect(response.body[1].fecha > response.body[2].fecha).toBeTruthy();
+      expect(response.body[2].fecha > response.body[3].fecha).toBeTruthy();
+      expect(response.body[3].fecha > response.body[4].fecha).toBeTruthy();
+    });
   });
 });
