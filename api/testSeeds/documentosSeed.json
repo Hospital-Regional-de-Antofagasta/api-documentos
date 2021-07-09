@@ -2,67 +2,67 @@
   {
     "numeroPaciente": 1,
     "fecha": "2021-06-01",
-    "correlativo": 1,
+    "correlativo": "1",
     "tipo": "DAU"
   },
   {
     "numeroPaciente": 1,
     "fecha": "2020-01-08",
-    "correlativo": 10,
+    "correlativo": "10",
     "tipo": "DAU"
   },
   {
     "numeroPaciente": 1,
     "fecha": "2020-02-08",
-    "correlativo": 9,
+    "correlativo": "9",
     "tipo": "DAU"
   },
   {
     "numeroPaciente": 1,
     "fecha": "2020-03-08",
-    "correlativo": 8,
+    "correlativo": "8",
     "tipo": "DAU"
   },
   {
     "numeroPaciente": 1,
     "fecha": "2020-04-08",
-    "correlativo": 7,
+    "correlativo": "7",
     "tipo": "DAU"
   },
   {
     "numeroPaciente": 1,
     "fecha": "2020-05-08",
-    "correlativo": 6,
+    "correlativo": "6",
     "tipo": "DAU"
   },
   {
     "numeroPaciente": 2,
     "fecha": "2021-06-07",
-    "correlativo": 5,
+    "correlativo": "5",
     "tipo": "DAU"
   },
   {
     "numeroPaciente": 1,
     "fecha": "2021-06-07",
-    "correlativo": 2,
+    "correlativo": "2",
     "tipo": "DAU"
   },
   {
     "numeroPaciente": 1,
     "fecha": "2021-06-08",
-    "correlativo": 1,
+    "correlativo": "1",
     "tipo": "EPICRISIS"
   },
   {
     "numeroPaciente": 2,
     "fecha": "2021-06-08",
-    "correlativo": 2,
+    "correlativo": "2",
     "tipo": "EPICRISIS"
   },
   {
     "numeroPaciente": 2,
     "fecha": "2021-06-06",
-    "correlativo": 4,
+    "correlativo": "4",
     "tipo": "DAU"
   }
 ]

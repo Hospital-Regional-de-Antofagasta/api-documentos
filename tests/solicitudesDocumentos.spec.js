@@ -25,17 +25,17 @@ afterEach(async () => {
 });
 
 const existingSolicitudDocumento = {
-  correlativoDocumento: 2,
+  correlativoDocumento: "2",
   tipoDocumento: "DAU",
 };
 
 const newSolicitudDocumento = {
-  correlativoDocumento: 3,
+  correlativoDocumento: "3",
   tipoDocumento: "DAU",
 };
 
 const oldSolicitudDocumento = {
-  correlativoDocumento: 1,
+  correlativoDocumento: "1",
   tipoDocumento: "DAU",
 };
 
@@ -68,7 +68,7 @@ describe("Endpoints solicitudes documentos", () => {
       it("Should not create solicitud documento wrong correlativoDocumento", async () => {
         const token = jwt.sign({ numeroPaciente: 1 }, secret);
         const badSolicitudDocumento = {
-          correlativoDocumento: "hola",
+          correlativoDocumento: 111,
           tipoDocumento: "DAU",
         };
         const response = await request
