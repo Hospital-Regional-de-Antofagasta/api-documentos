@@ -5,7 +5,7 @@ const { mensajes } = require("../config");
 exports.validateBodySolicitud = async (req, res, next) => {
   try {
     const schema = Joi.object({
-      correlativoDocumento: Joi.number().required(),
+      correlativoDocumento: Joi.string().required(),
       tipoDocumento: Joi.string().required(),
     });
 

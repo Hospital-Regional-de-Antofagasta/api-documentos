@@ -6,7 +6,7 @@ const Documentos = mongoose.model(
   new Schema({
     numeroPaciente: { type: Number, select: false },
     fecha: Date,
-    correlativo: Number,
+    correlativo: String,
     tipo: String,
   }),
   "documentos"
