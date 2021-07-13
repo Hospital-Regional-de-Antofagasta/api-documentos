@@ -1,5 +1,5 @@
 const Documentos = require("../models/Documentos");
-const { mensajes } = require("../config");
+const { getMensajes } = require("../config");
 
 exports.getDocumentos = async (req, res) => {
   try {
@@ -16,6 +16,6 @@ exports.getDocumentos = async (req, res) => {
       .exec();
     res.status(200).send(documentos);
   } catch (error) {
-    res.status(500).send({ respuesta: mensajes.serverError });
+    res.status(500).send({ respuesta: await getmensajes("serverError") });
   }
 };

@@ -4,7 +4,9 @@ const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const Documentos = require("../api/models/Documentos");
 const documentosSeed = require("../api/testSeeds/documentosSeed.json");
-const { mensajes } = require("../api/config");
+const { getMensajes } = require("../api/config");
+const ConfigApiDocumentos = require("../api/models/ConfigApiDocumentos");
+const configSeed = require("../api/testSeeds/configSeed.json");
 
 const request = supertest(app);
 
@@ -17,10 +19,12 @@ beforeEach(async () => {
     useUnifiedTopology: true,
   });
   await Documentos.create(documentosSeed);
+  await ConfigApiDocumentos.create(configSeed);
 });
 
 afterEach(async () => {
   await Documentos.deleteMany();
+  await ConfigApiDocumentos.deleteMany();
   await mongoose.disconnect();
 });
 
@@ -31,8 +35,17 @@ describe("Endpoints documentos", () => {
         .get("/v1/documentos_paciente?tipo=dau")
         .set("Authorization", "no-token");
 
+      const mensaje = await getMensajes("forbiddenAccess");
+
       expect(response.status).toBe(401);
-      expect(response.body).toEqual({ respuesta: mensajes.forbiddenAccess });
+      expect(response.body).toEqual({
+        respuesta: {
+          titulo: mensaje.titulo,
+          mensaje: mensaje.mensaje,
+          color: mensaje.color,
+          icono: mensaje.icono,
+        },
+      });
     });
     it("Should not get documentos from non existing tipo", async () => {
       const token = jwt.sign({ numeroPaciente: 1 }, secret);

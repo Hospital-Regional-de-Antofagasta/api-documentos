@@ -1,6 +1,6 @@
 const Joi = require("joi");
 const SolicitudesDocumentos = require("../models/SolicitudesDocumentos");
-const { mensajes } = require("../config");
+const { getMensajes } = require("../config");
 
 exports.validateBodySolicitud = async (req, res, next) => {
   try {
@@ -16,16 +16,13 @@ exports.validateBodySolicitud = async (req, res, next) => {
     const { error, value } = schema.validate(req.body, options);
 
     if (error)
-      return res.status(400).send({
-        respuesta: mensajes.badRequest,
-        detalles_error: `Validation error: ${error.details
-          .map((x) => x.message)
-          .join(", ")}`,
-      });
+      return res
+        .status(400)
+        .send({ respuesta: await getMensajes("badRequest") });
     req.body = value;
     next();
   } catch (error) {
-    res.status(500).send({ respuesta: mensajes.serverError });
+    res.status(500).send({ respuesta: await getMensajes("serverError") });
   }
 };
 
@@ -38,12 +35,11 @@ exports.validateDuplicationSolicitud = async (req, res, next) => {
       filter
     ).exec();
     if (solicitudExistente)
-      return res.status(400).send({
-        respuesta: mensajes.badRequest,
-        detalles_error: "Solicitud duplicada",
-      });
+      return res
+        .status(400)
+        .send({ respuesta: await getMensajes("badRequest") });
     next();
   } catch (error) {
-    res.status(500).send({ respuesta: mensajes.serverError });
+    res.status(500).send({ respuesta: await getMensajes("serverError") });
   }
 };

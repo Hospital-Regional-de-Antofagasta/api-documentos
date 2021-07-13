@@ -4,7 +4,9 @@ const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const SolicitudesDocumentos = require("../api/models/SolicitudesDocumentos");
 const solicitudesDocumentosSeed = require("../api/testSeeds/solicitudesDocumentosSeed.json");
-const { mensajes } = require("../api/config");
+const { getMensajes } = require("../api/config");
+const ConfigApiDocumentos = require("../api/models/ConfigApiDocumentos");
+const configSeed = require("../api/testSeeds/configSeed.json");
 
 const request = supertest(app);
 
@@ -17,10 +19,12 @@ beforeEach(async () => {
     useUnifiedTopology: true,
   });
   await SolicitudesDocumentos.create(solicitudesDocumentosSeed);
+  await ConfigApiDocumentos.create(configSeed);
 });
 
 afterEach(async () => {
   await SolicitudesDocumentos.deleteMany();
+  await ConfigApiDocumentos.deleteMany();
   await mongoose.disconnect();
 });
 
@@ -34,11 +38,6 @@ const newSolicitudDocumento = {
   tipoDocumento: "DAU",
 };
 
-const oldSolicitudDocumento = {
-  correlativoDocumento: "1",
-  tipoDocumento: "DAU",
-};
-
 describe("Endpoints solicitudes documentos", () => {
   describe("Create solicitud documento", () => {
     it("Should not create solicitud documento without token", async () => {
@@ -47,8 +46,17 @@ describe("Endpoints solicitudes documentos", () => {
         .set("Authorization", "no-token")
         .send(newSolicitudDocumento);
 
+      const mensaje = await getMensajes("forbiddenAccess");
+
       expect(response.status).toBe(401);
-      expect(response.body).toEqual({ respuesta: mensajes.forbiddenAccess });
+      expect(response.body).toEqual({
+        respuesta: {
+          titulo: mensaje.titulo,
+          mensaje: mensaje.mensaje,
+          color: mensaje.color,
+          icono: mensaje.icono,
+        },
+      });
     });
     describe("Validate body", () => {
       it("Should not create solicitud documento wrong tipoDocumento", async () => {
@@ -62,8 +70,17 @@ describe("Endpoints solicitudes documentos", () => {
           .set("Authorization", token)
           .send(badSolicitudDocumento);
 
+        const mensaje = await getMensajes("badRequest");
+
         expect(response.status).toBe(400);
-        expect(response.body.respuesta).toEqual(mensajes.badRequest);
+        expect(response.body).toEqual({
+          respuesta: {
+            titulo: mensaje.titulo,
+            mensaje: mensaje.mensaje,
+            color: mensaje.color,
+            icono: mensaje.icono,
+          },
+        });
       });
       it("Should not create solicitud documento wrong correlativoDocumento", async () => {
         const token = jwt.sign({ numeroPaciente: 1 }, secret);
@@ -76,8 +93,17 @@ describe("Endpoints solicitudes documentos", () => {
           .set("Authorization", token)
           .send(badSolicitudDocumento);
 
+        const mensaje = await getMensajes("badRequest");
+
         expect(response.status).toBe(400);
-        expect(response.body.respuesta).toEqual(mensajes.badRequest);
+        expect(response.body).toEqual({
+          respuesta: {
+            titulo: mensaje.titulo,
+            mensaje: mensaje.mensaje,
+            color: mensaje.color,
+            icono: mensaje.icono,
+          },
+        });
       });
       it("Should not create solicitud documento without tipoDocumento", async () => {
         const token = jwt.sign({ numeroPaciente: 1 }, secret);
@@ -89,8 +115,17 @@ describe("Endpoints solicitudes documentos", () => {
           .set("Authorization", token)
           .send(badSolicitudDocumento);
 
+        const mensaje = await getMensajes("badRequest");
+
         expect(response.status).toBe(400);
-        expect(response.body.respuesta).toEqual(mensajes.badRequest);
+        expect(response.body).toEqual({
+          respuesta: {
+            titulo: mensaje.titulo,
+            mensaje: mensaje.mensaje,
+            color: mensaje.color,
+            icono: mensaje.icono,
+          },
+        });
       });
       it("Should not create solicitud documento without correlativoDocumento", async () => {
         const token = jwt.sign({ numeroPaciente: 1 }, secret);
@@ -102,8 +137,17 @@ describe("Endpoints solicitudes documentos", () => {
           .set("Authorization", token)
           .send(badSolicitudDocumento);
 
+        const mensaje = await getMensajes("badRequest");
+
         expect(response.status).toBe(400);
-        expect(response.body.respuesta).toEqual(mensajes.badRequest);
+        expect(response.body).toEqual({
+          respuesta: {
+            titulo: mensaje.titulo,
+            mensaje: mensaje.mensaje,
+            color: mensaje.color,
+            icono: mensaje.icono,
+          },
+        });
       });
       it("Should not create solicitud documento without fields", async () => {
         const token = jwt.sign({ numeroPaciente: 1 }, secret);
@@ -113,8 +157,17 @@ describe("Endpoints solicitudes documentos", () => {
           .set("Authorization", token)
           .send(badSolicitudDocumento);
 
+        const mensaje = await getMensajes("badRequest");
+
         expect(response.status).toBe(400);
-        expect(response.body.respuesta).toEqual(mensajes.badRequest);
+        expect(response.body).toEqual({
+          respuesta: {
+            titulo: mensaje.titulo,
+            mensaje: mensaje.mensaje,
+            color: mensaje.color,
+            icono: mensaje.icono,
+          },
+        });
       });
     });
     it("Should not create solicitud documento if there is an equal solicitud pending", async () => {
@@ -124,8 +177,17 @@ describe("Endpoints solicitudes documentos", () => {
         .set("Authorization", token)
         .send(existingSolicitudDocumento);
 
+      const mensaje = await getMensajes("badRequest");
+
       expect(response.status).toBe(400);
-      expect(response.body.respuesta).toEqual(mensajes.badRequest);
+      expect(response.body).toEqual({
+        respuesta: {
+          titulo: mensaje.titulo,
+          mensaje: mensaje.mensaje,
+          color: mensaje.color,
+          icono: mensaje.icono,
+        },
+      });
     });
     it("Should create solicitud documento", async () => {
       const token = jwt.sign({ numeroPaciente: 1 }, secret);
@@ -143,8 +205,17 @@ describe("Endpoints solicitudes documentos", () => {
         filter
       ).exec();
 
+      const mensaje = await getMensajes("solicitudCreada");
+
       expect(response.status).toBe(201);
-      expect(response.body).toEqual({});
+      expect(response.body).toEqual({
+        respuesta: {
+          titulo: mensaje.titulo,
+          mensaje: mensaje.mensaje,
+          color: mensaje.color,
+          icono: mensaje.icono,
+        },
+      });
 
       expect(solicitudCreada.numeroPaciente).toBeFalsy();
       expect(solicitudCreada.correlativoDocumento).toBe(
@@ -159,57 +230,65 @@ describe("Endpoints solicitudes documentos", () => {
     it("Should not check without token", async () => {
       const response = await request
         .get(
-          `/v1/documentos_paciente/solicitudes/${newSolicitudDocumento.tipoDocumento}/${newSolicitudDocumento.correlativoDocumento}`
+          `/v1/documentos_paciente/solicitudes/existe/${newSolicitudDocumento.tipoDocumento}/${newSolicitudDocumento.correlativoDocumento}`
         )
         .set("Authorization", "no-token");
 
+      const mensaje = await getMensajes("forbiddenAccess");
+
       expect(response.status).toBe(401);
-      expect(response.body).toEqual({ respuesta: mensajes.forbiddenAccess });
+      expect(response.body).toEqual({
+        respuesta: {
+          titulo: mensaje.titulo,
+          mensaje: mensaje.mensaje,
+          color: mensaje.color,
+          icono: mensaje.icono,
+        },
+      });
     });
     it("Should check on empty database", async () => {
       await SolicitudesDocumentos.deleteMany();
       const token = jwt.sign({ numeroPaciente: 1 }, secret);
       const response = await request
         .get(
-          `/v1/documentos_paciente/solicitudes/${newSolicitudDocumento.tipoDocumento}/${newSolicitudDocumento.correlativoDocumento}`
+          `/v1/documentos_paciente/solicitudes/existe/${newSolicitudDocumento.tipoDocumento}/${newSolicitudDocumento.correlativoDocumento}`
         )
         .set("Authorization", token);
 
       expect(response.status).toBe(200);
-      expect(response.body).toEqual({ respuesta: false });
+      expect(response.body).toEqual({ existeSolicitud: false });
     });
     it("Should check with non existing solicitud", async () => {
       const token = jwt.sign({ numeroPaciente: 1 }, secret);
       const response = await request
         .get(
-          `/v1/documentos_paciente/solicitudes/${newSolicitudDocumento.tipoDocumento}/${newSolicitudDocumento.correlativoDocumento}`
+          `/v1/documentos_paciente/solicitudes/existe/${newSolicitudDocumento.tipoDocumento}/${newSolicitudDocumento.correlativoDocumento}`
         )
         .set("Authorization", token);
 
       expect(response.status).toBe(200);
-      expect(response.body).toEqual({ respuesta: false });
+      expect(response.body).toEqual({ existeSolicitud: false });
     });
     it("Should check with existing solicitud", async () => {
       const token = jwt.sign({ numeroPaciente: 1 }, secret);
       const response = await request
         .get(
-          `/v1/documentos_paciente/solicitudes/${existingSolicitudDocumento.tipoDocumento}/${existingSolicitudDocumento.correlativoDocumento}`
+          `/v1/documentos_paciente/solicitudes/existe/${existingSolicitudDocumento.tipoDocumento}/${existingSolicitudDocumento.correlativoDocumento}`
         )
         .set("Authorization", token);
 
-      expect(response.status).toBe(200);
-      expect(response.body).toEqual({ respuesta: true });
-    });
-    it("Should check with existing solicitud", async () => {
-      const token = jwt.sign({ numeroPaciente: 1 }, secret);
-      const response = await request
-        .get(
-          `/v1/documentos_paciente/solicitudes/${oldSolicitudDocumento.tipoDocumento}/${existingSolicitudDocumento.correlativoDocumento}`
-        )
-        .set("Authorization", token);
+      const mensaje = await getMensajes("solicitudDuplicada");
 
       expect(response.status).toBe(200);
-      expect(response.body).toEqual({ respuesta: true });
+      expect(response.body).toEqual({
+        existeSolicitud: true,
+        respuesta: {
+          titulo: mensaje.titulo,
+          mensaje: mensaje.mensaje,
+          color: mensaje.color,
+          icono: mensaje.icono,
+        },
+      });
     });
   });
   describe("Get solicitudes documentos", () => {
@@ -218,8 +297,17 @@ describe("Endpoints solicitudes documentos", () => {
         .get(`/v1/documentos_paciente/solicitudes/`)
         .set("Authorization", "no-token");
 
+      const mensaje = await getMensajes("forbiddenAccess");
+
       expect(response.status).toBe(401);
-      expect(response.body).toEqual({ respuesta: mensajes.forbiddenAccess });
+      expect(response.body).toEqual({
+        respuesta: {
+          titulo: mensaje.titulo,
+          mensaje: mensaje.mensaje,
+          color: mensaje.color,
+          icono: mensaje.icono,
+        },
+      });
     });
     it("Should get no solicitudes documentos from empty database", async () => {
       await SolicitudesDocumentos.deleteMany();
@@ -238,7 +326,7 @@ describe("Endpoints solicitudes documentos", () => {
         .set("Authorization", token);
 
       expect(response.status).toBe(200);
-      expect(response.body.length).toBe(4);
+      expect(response.body.length).toBe(3);
     });
   });
 });
