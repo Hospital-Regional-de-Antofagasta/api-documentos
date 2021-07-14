@@ -45,7 +45,7 @@ describe("Endpoints solicitudes documentos", () => {
   describe("Create solicitud documento", () => {
     it("Should not create solicitud documento without token", async () => {
       const response = await request
-        .post(`/v1/documentos_paciente/solicitudes/`)
+        .post(`/v1/documentos-paciente/solicitudes/`)
         .set("Authorization", "no-token")
         .send(newSolicitudDocumento);
 
@@ -69,7 +69,7 @@ describe("Endpoints solicitudes documentos", () => {
           tipoDocumento: 1,
         };
         const response = await request
-          .post(`/v1/documentos_paciente/solicitudes/`)
+          .post(`/v1/documentos-paciente/solicitudes/`)
           .set("Authorization", token)
           .send(badSolicitudDocumento);
 
@@ -92,7 +92,7 @@ describe("Endpoints solicitudes documentos", () => {
           tipoDocumento: "DAU",
         };
         const response = await request
-          .post(`/v1/documentos_paciente/solicitudes/`)
+          .post(`/v1/documentos-paciente/solicitudes/`)
           .set("Authorization", token)
           .send(badSolicitudDocumento);
 
@@ -114,7 +114,7 @@ describe("Endpoints solicitudes documentos", () => {
           correlativoDocumento: 11,
         };
         const response = await request
-          .post(`/v1/documentos_paciente/solicitudes/`)
+          .post(`/v1/documentos-paciente/solicitudes/`)
           .set("Authorization", token)
           .send(badSolicitudDocumento);
 
@@ -136,7 +136,7 @@ describe("Endpoints solicitudes documentos", () => {
           tipoDocumento: "DAU",
         };
         const response = await request
-          .post(`/v1/documentos_paciente/solicitudes/`)
+          .post(`/v1/documentos-paciente/solicitudes/`)
           .set("Authorization", token)
           .send(badSolicitudDocumento);
 
@@ -156,7 +156,7 @@ describe("Endpoints solicitudes documentos", () => {
         const token = jwt.sign({ numeroPaciente: 1 }, secret);
         const badSolicitudDocumento = {};
         const response = await request
-          .post(`/v1/documentos_paciente/solicitudes/`)
+          .post(`/v1/documentos-paciente/solicitudes/`)
           .set("Authorization", token)
           .send(badSolicitudDocumento);
 
@@ -176,7 +176,7 @@ describe("Endpoints solicitudes documentos", () => {
     it("Should not create solicitud documento if there is an equal solicitud pending", async () => {
       const token = jwt.sign({ numeroPaciente: 1 }, secret);
       const response = await request
-        .post(`/v1/documentos_paciente/solicitudes/`)
+        .post(`/v1/documentos-paciente/solicitudes/`)
         .set("Authorization", token)
         .send(existingSolicitudDocumento);
 
@@ -195,7 +195,7 @@ describe("Endpoints solicitudes documentos", () => {
     it("Should create solicitud documento", async () => {
       const token = jwt.sign({ numeroPaciente: 1 }, secret);
       const response = await request
-        .post(`/v1/documentos_paciente/solicitudes/`)
+        .post(`/v1/documentos-paciente/solicitudes/`)
         .set("Authorization", token)
         .send(newSolicitudDocumento);
 
@@ -233,7 +233,7 @@ describe("Endpoints solicitudes documentos", () => {
     it("Should not check without token", async () => {
       const response = await request
         .get(
-          `/v1/documentos_paciente/solicitudes/existe/${newSolicitudDocumento.tipoDocumento}/${newSolicitudDocumento.correlativoDocumento}`
+          `/v1/documentos-paciente/solicitudes/existe/${newSolicitudDocumento.tipoDocumento}/${newSolicitudDocumento.correlativoDocumento}`
         )
         .set("Authorization", "no-token");
 
@@ -254,7 +254,7 @@ describe("Endpoints solicitudes documentos", () => {
       const token = jwt.sign({ numeroPaciente: 1 }, secret);
       const response = await request
         .get(
-          `/v1/documentos_paciente/solicitudes/existe/${newSolicitudDocumento.tipoDocumento}/${newSolicitudDocumento.correlativoDocumento}`
+          `/v1/documentos-paciente/solicitudes/existe/${newSolicitudDocumento.tipoDocumento}/${newSolicitudDocumento.correlativoDocumento}`
         )
         .set("Authorization", token);
 
@@ -265,7 +265,7 @@ describe("Endpoints solicitudes documentos", () => {
       const token = jwt.sign({ numeroPaciente: 1 }, secret);
       const response = await request
         .get(
-          `/v1/documentos_paciente/solicitudes/existe/${newSolicitudDocumento.tipoDocumento}/${newSolicitudDocumento.correlativoDocumento}`
+          `/v1/documentos-paciente/solicitudes/existe/${newSolicitudDocumento.tipoDocumento}/${newSolicitudDocumento.correlativoDocumento}`
         )
         .set("Authorization", token);
 
@@ -276,7 +276,7 @@ describe("Endpoints solicitudes documentos", () => {
       const token = jwt.sign({ numeroPaciente: 1 }, secret);
       const response = await request
         .get(
-          `/v1/documentos_paciente/solicitudes/existe/${existingSolicitudDocumento.tipoDocumento}/${existingSolicitudDocumento.correlativoDocumento}`
+          `/v1/documentos-paciente/solicitudes/existe/${existingSolicitudDocumento.tipoDocumento}/${existingSolicitudDocumento.correlativoDocumento}`
         )
         .set("Authorization", token);
 
@@ -297,7 +297,7 @@ describe("Endpoints solicitudes documentos", () => {
   describe("Get solicitudes documentos", () => {
     it("Should not get solicitudes documentos", async () => {
       const response = await request
-        .get(`/v1/documentos_paciente/solicitudes/`)
+        .get(`/v1/documentos-paciente/solicitudes/`)
         .set("Authorization", "no-token");
 
       const mensaje = await getMensajes("forbiddenAccess");
@@ -316,7 +316,7 @@ describe("Endpoints solicitudes documentos", () => {
       await SolicitudesDocumentos.deleteMany();
       const token = jwt.sign({ numeroPaciente: 1 }, secret);
       const response = await request
-        .get(`/v1/documentos_paciente/solicitudes/`)
+        .get(`/v1/documentos-paciente/solicitudes/`)
         .set("Authorization", token);
 
       expect(response.status).toBe(200);
@@ -325,7 +325,7 @@ describe("Endpoints solicitudes documentos", () => {
     it("Should get solicitudes documentos", async () => {
       const token = jwt.sign({ numeroPaciente: 1 }, secret);
       const response = await request
-        .get(`/v1/documentos_paciente/solicitudes/`)
+        .get(`/v1/documentos-paciente/solicitudes/`)
         .set("Authorization", token);
 
       expect(response.status).toBe(200);

@@ -13,8 +13,8 @@ mongoose.connect(process.env.MONGO_URI, {
   useUnifiedTopology: true,
 });
 
-app.use("/v1/documentos_paciente", documentos);
+app.use("/v1/documentos-paciente", documentos);
 
-app.use("/v1/documentos_paciente/solicitudes", solicitudesDocumentos);
+app.use("/v1/documentos-paciente/solicitudes", solicitudesDocumentos);
 
 module.exports = app;
