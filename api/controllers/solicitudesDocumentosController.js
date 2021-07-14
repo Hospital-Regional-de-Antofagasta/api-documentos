@@ -31,8 +31,6 @@ exports.checkExistsSolicitudDocumento = async (req, res) => {
       });
     res.status(200).send({ existeSolicitud: false });
   } catch (error) {
-    console.log(error.name);
-    console.log(error.message);
     res.status(500).send({ respuesta: await getMensajes("serverError") });
   }
 };
