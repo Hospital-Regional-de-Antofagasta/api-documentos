@@ -14,10 +14,13 @@ const secret = process.env.JWT_SECRET;
 
 beforeEach(async () => {
   await mongoose.disconnect();
-  await mongoose.connect(`${process.env.MONGO_URI_TEST}documentos_test`, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
+  await mongoose.connect(
+    `${process.env.MONGO_URI_TEST}solicitudes_documentos_test`,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  );
   await SolicitudesDocumentos.create(solicitudesDocumentosSeed);
   await ConfigApiDocumentos.create(configSeed);
 });

@@ -3,7 +3,7 @@
     "mensajes": {
       "forbiddenAccess": {
         "titulo": "Alerta -test",
-        "mensaje": "Su sesión a expirado. -test",
+        "mensaje": "Su sesión ha expirado. -test",
         "color": " -test",
         "icono": " -test"
       },
@@ -20,14 +20,14 @@
         "icono": " -test"
       },
       "solicitudCreada": {
-        "titulo": "Éxito -test",
-        "mensaje": "La solicitud fue creada con éxito. -test",
+        "titulo": "!Todo ha salido bien¡ -test",
+        "mensaje": "Su solicitud ha sido creada con éxito, pronto recibirá un correo con su documento. -test",
         "color": " -test",
         "icono": " -test"
       },
       "solicitudDuplicada": {
-        "titulo": "Alerta -test",
-        "mensaje": "La solicitud ya existe. -test",
+        "titulo": "Solicitud Pendiente -test",
+        "mensaje": "Ya tiene una solicitud en curso. -test",
         "color": " -test",
         "icono": " -test"
       }

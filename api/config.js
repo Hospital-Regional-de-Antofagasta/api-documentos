@@ -1,9 +1,9 @@
 const ConfigApiDocumentos = require("./models/ConfigApiDocumentos");
 
-let mensajesPorDefecto = {
+const mensajesPorDefecto = {
   forbiddenAccess: {
     titulo: "Alerta",
-    mensaje: "Su sesión a expirado.",
+    mensaje: "Su sesión ha expirado.",
     color: "",
     icono: "",
   },
@@ -20,14 +20,15 @@ let mensajesPorDefecto = {
     icono: "",
   },
   solicitudCreada: {
-    titulo: "Éxito",
-    mensaje: "La solicitud fue creada con éxito.",
+    titulo: "!Todo ha salido bien¡",
+    mensaje:
+      "Su solicitud ha sido creada con éxito, pronto recibirá un correo con su documento.",
     color: "",
     icono: "",
   },
   solicitudDuplicada: {
-    titulo: "Alerta",
-    mensaje: "La solicitud ya existe.",
+    titulo: "Solicitud Pendiente",
+    mensaje: "Ya tiene una solicitud en curso.",
     color: "",
     icono: "",
   },
@@ -42,5 +43,7 @@ exports.getMensajes = async (tipo) => {
       return mensajes[tipo];
     }
     return mensajesPorDefecto[tipo];
-  } catch (error) {}
+  } catch (error) {
+    return mensajesPorDefecto[tipo];
+  }
 };
