@@ -1,13 +1,5 @@
 [
   {
-    "correlativoSolicitud": 1,
-    "anio": 2021,
-    "numeroPaciente": 1,
-    "correlativoDocumento": "1",
-    "tipoDocumento": "DAU",
-    "estado": "REALIZADO"
-  },
-  {
     "correlativoSolicitud": 5,
     "anio": 2021,
     "numeroPaciente": 1,

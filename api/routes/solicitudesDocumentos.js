@@ -17,7 +17,7 @@ router.post(
 );
 
 router.get(
-  "/:tipoDocumento/:correlativoDocumento",
+  "/existe/:tipoDocumento/:correlativoDocumento",
   isAuthenticated,
   solicitudesDocumentosController.checkExistsSolicitudDocumento
 );

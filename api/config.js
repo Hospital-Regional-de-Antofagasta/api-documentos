@@ -1,19 +1,49 @@
-const ConfigApiDocumentos = require('./models/ConfigApiDocumentos')
+const ConfigApiDocumentos = require("./models/ConfigApiDocumentos");
 
-let mensajes = {
-  forbiddenAccess: "Su sesión a expirado.",
-  serverError: "Se produjo un error.",
-  badRequest: "La petición no está bien formada.",
-}
-
-const loadConfig = async () => {
-  try {
-    const config = await ConfigApiDocumentos.findOne({ version: 1 }).exec();
-    mensajes = config.mensajes;
-  } catch (error) {}
+const mensajesPorDefecto = {
+  forbiddenAccess: {
+    titulo: "Alerta",
+    mensaje: "Su sesión ha expirado.",
+    color: "",
+    icono: "",
+  },
+  serverError: {
+    titulo: "Alerta",
+    mensaje: "Ocurrió un error inesperado.",
+    color: "",
+    icono: "",
+  },
+  badRequest: {
+    titulo: "Alerta",
+    mensaje: "La solicitud no está bien formada.",
+    color: "",
+    icono: "",
+  },
+  solicitudCreada: {
+    titulo: "!Todo ha salido bien¡",
+    mensaje:
+      "Su solicitud ha sido creada con éxito, pronto recibirá un correo con su documento.",
+    color: "",
+    icono: "",
+  },
+  solicitudDuplicada: {
+    titulo: "Solicitud Pendiente",
+    mensaje: "Ya tiene una solicitud en curso.",
+    color: "",
+    icono: "",
+  },
 };
 
-module.exports = {
-  loadConfig,
-  mensajes,
+exports.getMensajes = async (tipo) => {
+  try {
+    const { mensajes } = await ConfigApiDocumentos.findOne({
+      version: 1,
+    }).exec();
+    if (mensajes) {
+      return mensajes[tipo];
+    }
+    return mensajesPorDefecto[tipo];
+  } catch (error) {
+    return mensajesPorDefecto[tipo];
+  }
 };
