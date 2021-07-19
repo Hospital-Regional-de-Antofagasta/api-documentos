@@ -16,6 +16,6 @@ exports.getDocumentos = async (req, res) => {
       .exec();
     res.status(200).send(documentos);
   } catch (error) {
-    res.status(500).send({ respuesta: await getmensajes("serverError") });
+    res.status(500).send({ respuesta: await getMensajes("serverError") });
   }
 };
