@@ -21,6 +21,7 @@ const SolicitudesDocumentos = mongoose.model(
         type: String,
         default: "PENDIENTE",
       },
+      codigoEstablecimiento: String,
     },
     { timestamps: true }
   ),

@@ -5,7 +5,8 @@
     "numeroPaciente": 1,
     "correlativoDocumento": "2",
     "tipoDocumento": "DAU",
-    "estado": "EN_PROCESO"
+    "estado": "EN_PROCESO",
+    "codigoEstablecimiento":"OTRO"
   },
   {
     "correlativoSolicitud": 0,
@@ -13,7 +14,8 @@
     "numeroPaciente": 1,
     "correlativoDocumento": "1",
     "tipoDocumento": "EPICRISIS",
-    "estado": "PENDIENTE"
+    "estado": "PENDIENTE",
+    "codigoEstablecimiento":"HRA"
   },
   {
     "correlativoSolicitud": 4,
@@ -21,6 +23,7 @@
     "numeroPaciente": 2,
     "correlativoDocumento": "1",
     "tipoDocumento": "DAU",
-    "estado": "EN_PROCESO"
+    "estado": "EN_PROCESO",
+    "codigoEstablecimiento":"HRA"
   }
 ]

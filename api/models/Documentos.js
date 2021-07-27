@@ -8,6 +8,7 @@ const Documentos = mongoose.model(
     fecha: Date,
     correlativo: String,
     tipo: String,
+    codigoEstablecimiento: String,
   }),
   "documentos"
 );
