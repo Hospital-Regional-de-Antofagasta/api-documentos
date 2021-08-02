@@ -5,8 +5,8 @@ exports.getDocumentos = async (req, res) => {
   try {
     const tipo = req.query.tipo;
     const filter = tipo
-      ? { numeroPaciente: req.numeroPaciente, tipo }
-      : { numeroPaciente: req.numeroPaciente };
+      ? { numeroPaciente: { $in: req.numerosPaciente }, tipo }
+      : { numeroPaciente: { $in: req.numerosPaciente } };
 
     const cantidad = parseInt(req.query.cantidad);
 
@@ -15,7 +15,7 @@ exports.getDocumentos = async (req, res) => {
       .limit(cantidad)
       .exec();
     res.status(200).send(documentos);
-  } catch (error) {
+  } catch (error) {console.log(error)
     res.status(500).send({ respuesta: await getMensajes("serverError") });
   }
 };

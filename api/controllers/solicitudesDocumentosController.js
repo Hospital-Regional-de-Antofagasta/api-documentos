@@ -1,11 +1,14 @@
 const SolicitudesDocumentos = require("../models/SolicitudesDocumentos");
+const Documentos = require("../models/Documentos");
 const { getMensajes } = require("../config");
 
 exports.createSolicitudDocumento = async (req, res) => {
   try {
-    const numeroPaciente = req.numeroPaciente;
+    const documento = await Documentos.findById(req.body.idDocumento).select(
+      "numeroPaciente.numero numeroPaciente.codigoEstablecimiento numeroPaciente.nombreEstablecimiento"
+    );
     const solicitud = req.body;
-    solicitud.numeroPaciente = numeroPaciente;
+    solicitud.numeroPaciente = documento.numeroPaciente;
     await SolicitudesDocumentos.create(solicitud);
     res.status(201).send({ respuesta: await getMensajes("solicitudCreada") });
   } catch (error) {
@@ -15,12 +18,15 @@ exports.createSolicitudDocumento = async (req, res) => {
 
 exports.checkExistsSolicitudDocumento = async (req, res) => {
   try {
-    const numeroPaciente = req.numeroPaciente;
-    const { tipoDocumento, correlativoDocumento } = req.params;
+    const documento = await Documentos.findById(req.params.idDocumento)
+      .select(
+        "numeroPaciente.numero numeroPaciente.codigoEstablecimiento numeroPaciente.nombreEstablecimiento tipo correlativo"
+      )
+      .exec();
     const filter = {
-      numeroPaciente,
-      tipoDocumento,
-      correlativoDocumento,
+      numeroPaciente: documento.numeroPaciente,
+      tipoDocumento: documento.tipo,
+      correlativoDocumento: documento.correlativo,
       estado: { $ne: "REALIZADO" },
     };
     const solicitud = await SolicitudesDocumentos.findOne(filter).exec();
@@ -31,6 +37,7 @@ exports.checkExistsSolicitudDocumento = async (req, res) => {
       });
     res.status(200).send({ existeSolicitud: false });
   } catch (error) {
+    console.log(error);
     res.status(500).send({ respuesta: await getMensajes("serverError") });
   }
 };

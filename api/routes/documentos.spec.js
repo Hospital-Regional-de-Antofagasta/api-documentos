@@ -10,7 +10,8 @@ const configSeed = require("../testSeeds/configSeed.json");
 
 const request = supertest(app);
 
-const secret = process.env.JWT_SECRET;
+const secreto = process.env.JWT_SECRET;
+let token
 
 beforeEach(async () => {
   await mongoose.disconnect();
@@ -48,7 +49,24 @@ describe("Endpoints documentos", () => {
       });
     });
     it("Should not get documentos from non existing tipo", async () => {
-      const token = jwt.sign({ numeroPaciente: 1 }, secret);
+      token = jwt.sign(
+        {
+          _id: "000000000000",
+          numerosPaciente: [
+            {
+              numero: 1,
+              codigoEstablecimiento: "E01",
+              nombreEstablecimiento: "Hospital Regional de Antofagasta",
+            },
+            {
+              numero: 5,
+              codigoEstablecimiento: "E02",
+              nombreEstablecimiento: "Hospital de Calama",
+            },
+          ],
+        },
+        secreto
+      );
       const response = await request
         .get("/v1/documentos-paciente?tipo=dau")
         .set("Authorization", token);
@@ -57,7 +75,24 @@ describe("Endpoints documentos", () => {
       expect(response.body).toEqual([]);
     });
     it("Should not get documentos if there are not any", async () => {
-      const token = jwt.sign({ numeroPaciente: 3 }, secret);
+      token = jwt.sign(
+        {
+          _id: "000000000000",
+          numerosPaciente: [
+            {
+              numero: 3,
+              codigoEstablecimiento: "E01",
+              nombreEstablecimiento: "Hospital Regional de Antofagasta",
+            },
+            {
+              numero: 2,
+              codigoEstablecimiento: "E03",
+              nombreEstablecimiento: "Hospital de Mejillones",
+            },
+          ],
+        },
+        secreto
+      );
       const response = await request
         .get("/v1/documentos-paciente?tipo=DAU")
         .set("Authorization", token);
@@ -66,13 +101,34 @@ describe("Endpoints documentos", () => {
       expect(response.body).toEqual([]);
     });
     it("Should get documentos tipo DAU", async () => {
-      const token = jwt.sign({ numeroPaciente: 1 }, secret);
+      token = jwt.sign(
+        {
+          _id: "000000000000",
+          numerosPaciente: [
+            {
+              numero: 1,
+              codigoEstablecimiento: "E01",
+              nombreEstablecimiento: "Hospital Regional de Antofagasta",
+            },
+            {
+              numero: 5,
+              codigoEstablecimiento: "E02",
+              nombreEstablecimiento: "Hospital de Calama",
+            },
+          ],
+        },
+        secreto
+      );
       const response = await request
         .get("/v1/documentos-paciente?tipo=DAU")
         .set("Authorization", token);
 
       const documentosDauObtenidos = await Documentos.find({
-        numeroPaciente: 1,
+        numeroPaciente: {
+          numero: 1,
+          codigoEstablecimiento: "E01",
+          nombreEstablecimiento: "Hospital Regional de Antofagasta",
+        },
         tipo: "DAU",
       }).exec();
 
@@ -82,7 +138,24 @@ describe("Endpoints documentos", () => {
       expect(response.body[1].fecha > response.body[2].fecha).toBeTruthy();
     });
     it("Should get documentos tipo EPICRISIS", async () => {
-      const token = jwt.sign({ numeroPaciente: 1 }, secret);
+      token = jwt.sign(
+        {
+          _id: "000000000000",
+          numerosPaciente: [
+            {
+              numero: 1,
+              codigoEstablecimiento: "E01",
+              nombreEstablecimiento: "Hospital Regional de Antofagasta",
+            },
+            {
+              numero: 5,
+              codigoEstablecimiento: "E02",
+              nombreEstablecimiento: "Hospital de Calama",
+            },
+          ],
+        },
+        secreto
+      );
       const response = await request
         .get("/v1/documentos-paciente?tipo=EPICRISIS")
         .set("Authorization", token);
@@ -91,7 +164,24 @@ describe("Endpoints documentos", () => {
       expect(response.body.length).toBe(1);
     });
     it("Should get only 5 documentos tipo DAU", async () => {
-      const token = jwt.sign({ numeroPaciente: 1 }, secret);
+      token = jwt.sign(
+        {
+          _id: "000000000000",
+          numerosPaciente: [
+            {
+              numero: 1,
+              codigoEstablecimiento: "E01",
+              nombreEstablecimiento: "Hospital Regional de Antofagasta",
+            },
+            {
+              numero: 5,
+              codigoEstablecimiento: "E02",
+              nombreEstablecimiento: "Hospital de Calama",
+            },
+          ],
+        },
+        secreto
+      );
       const response = await request
         .get("/v1/documentos-paciente?tipo=DAU&cantidad=5")
         .set("Authorization", token);

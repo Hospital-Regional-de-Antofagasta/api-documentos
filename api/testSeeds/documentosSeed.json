@@ -1,79 +1,136 @@
 [
   {
-    "numeroPaciente": 1,
+    "numeroPaciente": 
+      {
+        "numero": 1,
+        "codigoEstablecimiento": "E01",
+        "nombreEstablecimiento": "Hospital Regional de Antofagasta"
+      },
     "fecha": "2021-06-01",
     "correlativo": "1",
-    "tipo": "DAU",
-    "codigoEstablecimiento":"HRA"
+    "tipo": "DAU"
   },
   {
-    "numeroPaciente": 1,
+    "numeroPaciente": 
+      {
+        "numero": 1,
+        "codigoEstablecimiento": "E01",
+        "nombreEstablecimiento": "Hospital Regional de Antofagasta"
+      },
     "fecha": "2020-01-08",
     "correlativo": "10",
-    "tipo": "DAU",
-    "codigoEstablecimiento":"OTRO"
+    "tipo": "DAU"
   },
   {
-    "numeroPaciente": 1,
+    "numeroPaciente": 
+      {
+        "numero": 1,
+        "codigoEstablecimiento": "E01",
+        "nombreEstablecimiento": "Hospital Regional de Antofagasta"
+      },
     "fecha": "2020-02-08",
     "correlativo": "9",
-    "tipo": "DAU",
-    "codigoEstablecimiento":"HRA"
+    "tipo": "DAU"
   },
   {
-    "numeroPaciente": 1,
+    "numeroPaciente": 
+      {
+        "numero": 1,
+        "codigoEstablecimiento": "E01",
+        "nombreEstablecimiento": "Hospital Regional de Antofagasta"
+      },
     "fecha": "2020-03-08",
     "correlativo": "8",
-    "tipo": "DAU",
-    "codigoEstablecimiento":"OTRO"
+    "tipo": "DAU"
   },
   {
-    "numeroPaciente": 1,
+    "numeroPaciente": 
+      {
+        "numero": 1,
+        "codigoEstablecimiento": "E01",
+        "nombreEstablecimiento": "Hospital Regional de Antofagasta"
+      },
     "fecha": "2020-04-08",
     "correlativo": "7",
-    "tipo": "DAU",
-    "codigoEstablecimiento":"HRA"
+    "tipo": "DAU"
   },
   {
-    "numeroPaciente": 1,
+    "numeroPaciente": 
+      {
+        "numero": 1,
+        "codigoEstablecimiento": "E01",
+        "nombreEstablecimiento": "Hospital Regional de Antofagasta"
+      },
     "fecha": "2020-05-08",
     "correlativo": "6",
-    "tipo": "DAU",
-    "codigoEstablecimiento":"HRA"
+    "tipo": "DAU"
   },
   {
-    "numeroPaciente": 2,
+    "numeroPaciente": 
+      {
+        "numero": 2,
+        "codigoEstablecimiento": "E01",
+        "nombreEstablecimiento": "Hospital Regional de Antofagasta"
+      },
     "fecha": "2021-06-07",
     "correlativo": "5",
-    "tipo": "DAU",
-    "codigoEstablecimiento":"HRA"
+    "tipo": "DAU"
   },
   {
-    "numeroPaciente": 1,
+    "_id":"000000000003",
+    "numeroPaciente": 
+      {
+        "numero": 1,
+        "codigoEstablecimiento": "E01",
+        "nombreEstablecimiento": "Hospital Regional de Antofagasta"
+      },
     "fecha": "2021-06-07",
     "correlativo": "2",
-    "tipo": "DAU",
-    "codigoEstablecimiento":"HRA"
+    "tipo": "DAU"
   },
   {
-    "numeroPaciente": 1,
+    "numeroPaciente": 
+      {
+        "numero": 1,
+        "codigoEstablecimiento": "E01",
+        "nombreEstablecimiento": "Hospital Regional de Antofagasta"
+      },
     "fecha": "2021-06-08",
     "correlativo": "1",
-    "tipo": "EPICRISIS",
-    "codigoEstablecimiento":"OTRO"
+    "tipo": "EPICRISIS"
   },
   {
-    "numeroPaciente": 2,
+    "numeroPaciente": 
+      {
+        "numero": 2,
+        "codigoEstablecimiento": "E01",
+        "nombreEstablecimiento": "Hospital Regional de Antofagasta"
+      },
     "fecha": "2021-06-08",
     "correlativo": "2",
-    "tipo": "EPICRISIS",
-    "codigoEstablecimiento":"HRA"
+    "tipo": "EPICRISIS"
   },
   {
-    "numeroPaciente": 2,
+    "numeroPaciente": 
+      {
+        "numero": 2,
+        "codigoEstablecimiento": "E01",
+        "nombreEstablecimiento": "Hospital Regional de Antofagasta"
+      },
     "fecha": "2021-06-06",
     "correlativo": "4",
-    "tipo": "DAU",
-    "codigoEstablecimiento":"OTRO"
+    "tipo": "DAU"
+  },
+  {
+    "_id": "000000000002",
+    "numeroPaciente": 
+      {
+        "numero": 1,
+        "codigoEstablecimiento": "E01",
+        "nombreEstablecimiento": "Hospital Regional de Antofagasta"
+      },
+    "fecha": "2021-07-30",
+    "correlativo": "3",
+    "tipo": "DAU"
   }
 ]

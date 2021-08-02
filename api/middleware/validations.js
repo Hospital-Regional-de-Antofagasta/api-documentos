@@ -5,6 +5,7 @@ const { getMensajes } = require("../config");
 exports.validateBodySolicitud = async (req, res, next) => {
   try {
     const schema = Joi.object({
+      idDocumento: Joi.string().required(),
       correlativoDocumento: Joi.string().required(),
       tipoDocumento: Joi.string().required(),
     });
@@ -28,9 +29,8 @@ exports.validateBodySolicitud = async (req, res, next) => {
 
 exports.validateDuplicationSolicitud = async (req, res, next) => {
   try {
-    const numeroPaciente = req.numeroPaciente;
-    const { tipoDocumento, correlativoDocumento } = req.body;
-    const filter = { numeroPaciente, tipoDocumento, correlativoDocumento };
+    const {tipoDocumento, correlativoDocumento } = req.body;
+    const filter = { numeroPaciente:{ $in: req.numerosPaciente }, tipoDocumento, correlativoDocumento };
     const solicitudExistente = await SolicitudesDocumentos.findOne(
       filter
     ).exec();
@@ -39,7 +39,7 @@ exports.validateDuplicationSolicitud = async (req, res, next) => {
         .status(400)
         .send({ respuesta: await getMensajes("badRequest") });
     next();
-  } catch (error) {
+  } catch (error) {console.log(error)
     res.status(500).send({ respuesta: await getMensajes("serverError") });
   }
 };
