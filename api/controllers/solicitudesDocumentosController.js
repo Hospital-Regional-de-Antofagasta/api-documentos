@@ -12,6 +12,14 @@ exports.createSolicitudDocumento = async (req, res) => {
     await SolicitudesDocumentos.create(solicitud);
     res.status(201).send({ respuesta: await getMensajes("solicitudCreada") });
   } catch (error) {
+    if (process.env.NODE_ENV === "dev")
+      return res.status(500).send({
+        respuesta: await getMensajes("serverError"),
+        detalles_error: {
+          nombre: error.name,
+          mensaje: error.message,
+        },
+      });
     res.status(500).send({ respuesta: await getMensajes("serverError") });
   }
 };
@@ -45,6 +53,14 @@ exports.getSolicitudesDocumentos = async (req, res) => {
     const solicitudes = await SolicitudesDocumentos.find().exec();
     res.status(200).send(solicitudes);
   } catch (error) {
+    if (process.env.NODE_ENV === "dev")
+      return res.status(500).send({
+        respuesta: await getMensajes("serverError"),
+        detalles_error: {
+          nombre: error.name,
+          mensaje: error.message,
+        },
+      });
     res.status(500).send({ respuesta: await getMensajes("serverError") });
   }
 };
