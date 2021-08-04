@@ -15,7 +15,7 @@ exports.getDocumentos = async (req, res) => {
       .limit(cantidad)
       .exec();
     res.status(200).send(documentos);
-  } catch (error) {console.log(error)
+  } catch (error) {
     res.status(500).send({ respuesta: await getMensajes("serverError") });
   }
 };

@@ -23,13 +23,12 @@ exports.checkExistsSolicitudDocumento = async (req, res) => {
         "numeroPaciente.numero numeroPaciente.codigoEstablecimiento numeroPaciente.nombreEstablecimiento tipo correlativo"
       )
       .exec();
-    const filter = {
+    const solicitud = await SolicitudesDocumentos.findOne({
       numeroPaciente: documento.numeroPaciente,
       tipoDocumento: documento.tipo,
       correlativoDocumento: documento.correlativo,
       estado: { $ne: "REALIZADO" },
-    };
-    const solicitud = await SolicitudesDocumentos.findOne(filter).exec();
+    }).exec();
     if (solicitud)
       return res.status(200).send({
         existeSolicitud: true,
@@ -37,7 +36,6 @@ exports.checkExistsSolicitudDocumento = async (req, res) => {
       });
     res.status(200).send({ existeSolicitud: false });
   } catch (error) {
-    console.log(error);
     res.status(500).send({ respuesta: await getMensajes("serverError") });
   }
 };

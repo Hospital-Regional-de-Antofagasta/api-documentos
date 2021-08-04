@@ -39,7 +39,7 @@ exports.validateDuplicationSolicitud = async (req, res, next) => {
         .status(400)
         .send({ respuesta: await getMensajes("badRequest") });
     next();
-  } catch (error) {console.log(error)
+  } catch (error) {
     res.status(500).send({ respuesta: await getMensajes("serverError") });
   }
 };

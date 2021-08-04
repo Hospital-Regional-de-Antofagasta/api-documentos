@@ -50,24 +50,6 @@ const newSolicitudDocumento = {
 
 describe("Endpoints solicitudes documentos", () => {
   describe("POST /v1/documentos-paciente/solicitudes/", () => {
-    it("Should not create solicitud documento without token", async () => {
-      const response = await request
-        .post(`/v1/documentos-paciente/solicitudes/`)
-        .set("Authorization", "no-token")
-        .send(newSolicitudDocumento);
-
-      const mensaje = await getMensajes("forbiddenAccess");
-
-      expect(response.status).toBe(401);
-      expect(response.body).toEqual({
-        respuesta: {
-          titulo: mensaje.titulo,
-          mensaje: mensaje.mensaje,
-          color: mensaje.color,
-          icono: mensaje.icono,
-        },
-      });
-    });
     describe("Validate body", () => {
       it("Should not create solicitud documento wrong tipoDocumento", async () => {
         token = jwt.sign(
@@ -263,6 +245,24 @@ describe("Endpoints solicitudes documentos", () => {
             icono: mensaje.icono,
           },
         });
+      });
+    });
+    it("Should not create solicitud documento without token", async () => {
+      const response = await request
+        .post(`/v1/documentos-paciente/solicitudes/`)
+        .set("Authorization", "no-token")
+        .send(newSolicitudDocumento);
+
+      const mensaje = await getMensajes("forbiddenAccess");
+
+      expect(response.status).toBe(401);
+      expect(response.body).toEqual({
+        respuesta: {
+          titulo: mensaje.titulo,
+          mensaje: mensaje.mensaje,
+          color: mensaje.color,
+          icono: mensaje.icono,
+        },
       });
     });
     it("Should not create solicitud documento if there is an equal solicitud pending", async () => {
