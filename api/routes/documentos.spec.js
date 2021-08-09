@@ -30,7 +30,7 @@ afterEach(async () => {
 });
 
 describe("Endpoints documentos", () => {
-  describe("Get documentos segun tipo", () => {
+  describe("GET /v1/documentos-paciente?tipo&?cantidad", () => {
     it("Should not get documentos without token", async () => {
       const response = await request
         .get("/v1/documentos-paciente?tipo=dau")

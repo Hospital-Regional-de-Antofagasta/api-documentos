@@ -49,7 +49,7 @@ const newSolicitudDocumento = {
 };
 
 describe("Endpoints solicitudes documentos", () => {
-  describe("POST /v1/documentos-paciente/solicitudes/", () => {
+  describe("POST /v1/documentos-paciente/solicitudes", () => {
     describe("Validate body", () => {
       it("Should not create solicitud documento wrong tipoDocumento", async () => {
         token = jwt.sign(
@@ -75,7 +75,7 @@ describe("Endpoints solicitudes documentos", () => {
           tipoDocumento: 1,
         };
         const response = await request
-          .post(`/v1/documentos-paciente/solicitudes/`)
+          .post(`/v1/documentos-paciente/solicitudes`)
           .set("Authorization", token)
           .send(badSolicitudDocumento);
 
@@ -115,7 +115,7 @@ describe("Endpoints solicitudes documentos", () => {
           tipoDocumento: "DAU",
         };
         const response = await request
-          .post(`/v1/documentos-paciente/solicitudes/`)
+          .post(`/v1/documentos-paciente/solicitudes`)
           .set("Authorization", token)
           .send(badSolicitudDocumento);
 
@@ -154,7 +154,7 @@ describe("Endpoints solicitudes documentos", () => {
           correlativoDocumento: 11,
         };
         const response = await request
-          .post(`/v1/documentos-paciente/solicitudes/`)
+          .post(`/v1/documentos-paciente/solicitudes`)
           .set("Authorization", token)
           .send(badSolicitudDocumento);
 
@@ -193,7 +193,7 @@ describe("Endpoints solicitudes documentos", () => {
           tipoDocumento: "DAU",
         };
         const response = await request
-          .post(`/v1/documentos-paciente/solicitudes/`)
+          .post(`/v1/documentos-paciente/solicitudes`)
           .set("Authorization", token)
           .send(badSolicitudDocumento);
 
@@ -230,7 +230,7 @@ describe("Endpoints solicitudes documentos", () => {
         );
         const badSolicitudDocumento = {};
         const response = await request
-          .post(`/v1/documentos-paciente/solicitudes/`)
+          .post(`/v1/documentos-paciente/solicitudes`)
           .set("Authorization", token)
           .send(badSolicitudDocumento);
 
@@ -249,7 +249,7 @@ describe("Endpoints solicitudes documentos", () => {
     });
     it("Should not create solicitud documento without token", async () => {
       const response = await request
-        .post(`/v1/documentos-paciente/solicitudes/`)
+        .post(`/v1/documentos-paciente/solicitudes`)
         .set("Authorization", "no-token")
         .send(newSolicitudDocumento);
 
@@ -285,7 +285,7 @@ describe("Endpoints solicitudes documentos", () => {
         secreto
       );
       const response = await request
-        .post(`/v1/documentos-paciente/solicitudes/`)
+        .post(`/v1/documentos-paciente/solicitudes`)
         .set("Authorization", token)
         .send(existingSolicitudDocumento);
 
@@ -321,7 +321,7 @@ describe("Endpoints solicitudes documentos", () => {
         secreto
       );
       const response = await request
-        .post(`/v1/documentos-paciente/solicitudes/`)
+        .post(`/v1/documentos-paciente/solicitudes`)
         .set("Authorization", token)
         .send(newSolicitudDocumento);
 
@@ -479,10 +479,10 @@ describe("Endpoints solicitudes documentos", () => {
       });
     });
   });
-  describe("GET /v1/documentos-paciente/solicitudes/", () => {
+  describe("GET /v1/documentos-paciente/solicitudes", () => {
     it("Should not get solicitudes documentos", async () => {
       const response = await request
-        .get(`/v1/documentos-paciente/solicitudes/`)
+        .get(`/v1/documentos-paciente/solicitudes`)
         .set("Authorization", "no-token");
 
       const mensaje = await getMensajes("forbiddenAccess");
@@ -518,7 +518,7 @@ describe("Endpoints solicitudes documentos", () => {
         secreto
       );
       const response = await request
-        .get(`/v1/documentos-paciente/solicitudes/`)
+        .get(`/v1/documentos-paciente/solicitudes`)
         .set("Authorization", token);
 
       expect(response.status).toBe(200);
@@ -544,7 +544,7 @@ describe("Endpoints solicitudes documentos", () => {
         secreto
       );
       const response = await request
-        .get(`/v1/documentos-paciente/solicitudes/`)
+        .get(`/v1/documentos-paciente/solicitudes`)
         .set("Authorization", token);
 
       expect(response.status).toBe(200);

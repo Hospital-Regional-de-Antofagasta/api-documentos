@@ -9,7 +9,7 @@ const {
 const router = express.Router();
 
 router.post(
-  "/",
+  "",
   isAuthenticated,
   validateBodySolicitud,
   validateDuplicationSolicitud,
@@ -23,7 +23,7 @@ router.get(
 );
 
 router.get(
-  "/",
+  "",
   isAuthenticated,
   solicitudesDocumentosController.getSolicitudesDocumentos
 );
