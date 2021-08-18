@@ -6,6 +6,9 @@
       {
         "numero": 1,
         "codigoEstablecimiento": "E01",
+        "hospital": {
+          "E01": 1
+        },
         "nombreEstablecimiento": "Hospital Regional de Antofagasta"
       },
     "correlativoDocumento": "2",
@@ -19,6 +22,9 @@
       {
         "numero": 1,
         "codigoEstablecimiento": "E01",
+        "hospital": {
+          "E01": 1
+        },
         "nombreEstablecimiento": "Hospital Regional de Antofagasta"
       },
     "correlativoDocumento": "1",
@@ -32,6 +38,9 @@
       {
         "numero": 2,
         "codigoEstablecimiento": "E01",
+        "hospital": {
+          "E01": 1
+        },
         "nombreEstablecimiento": "Hospital Regional de Antofagasta"
       },
     "correlativoDocumento": "1",
@@ -45,6 +54,9 @@
       {
         "numero": 2,
         "codigoEstablecimiento": "E02",
+        "hospital": {
+          "E02": 1
+        },
         "nombreEstablecimiento": "Hospital de Calama"
       },
     "correlativoDocumento": "1",

@@ -4,6 +4,9 @@
       {
         "numero": 1,
         "codigoEstablecimiento": "E01",
+        "hospital": {
+          "E01": 1
+        },
         "nombreEstablecimiento": "Hospital Regional de Antofagasta"
       },
     "fecha": "2021-06-01",
@@ -15,6 +18,9 @@
       {
         "numero": 1,
         "codigoEstablecimiento": "E01",
+        "hospital": {
+          "E01": 1
+        },
         "nombreEstablecimiento": "Hospital Regional de Antofagasta"
       },
     "fecha": "2020-01-08",
@@ -26,6 +32,9 @@
       {
         "numero": 1,
         "codigoEstablecimiento": "E01",
+        "hospital": {
+          "E01": 1
+        },
         "nombreEstablecimiento": "Hospital Regional de Antofagasta"
       },
     "fecha": "2020-02-08",
@@ -37,6 +46,9 @@
       {
         "numero": 1,
         "codigoEstablecimiento": "E01",
+        "hospital": {
+          "E01": 1
+        },
         "nombreEstablecimiento": "Hospital Regional de Antofagasta"
       },
     "fecha": "2020-03-08",
@@ -48,6 +60,9 @@
       {
         "numero": 1,
         "codigoEstablecimiento": "E01",
+        "hospital": {
+          "E01": 1
+        },
         "nombreEstablecimiento": "Hospital Regional de Antofagasta"
       },
     "fecha": "2020-04-08",
@@ -59,6 +74,9 @@
       {
         "numero": 1,
         "codigoEstablecimiento": "E01",
+        "hospital": {
+          "E01": 1
+        },
         "nombreEstablecimiento": "Hospital Regional de Antofagasta"
       },
     "fecha": "2020-05-08",
@@ -70,6 +88,9 @@
       {
         "numero": 2,
         "codigoEstablecimiento": "E01",
+        "hospital": {
+          "E01": 1
+        },
         "nombreEstablecimiento": "Hospital Regional de Antofagasta"
       },
     "fecha": "2021-06-07",
@@ -82,6 +103,9 @@
       {
         "numero": 1,
         "codigoEstablecimiento": "E01",
+        "hospital": {
+          "E01": 1
+        },
         "nombreEstablecimiento": "Hospital Regional de Antofagasta"
       },
     "fecha": "2021-06-07",
@@ -93,6 +117,9 @@
       {
         "numero": 1,
         "codigoEstablecimiento": "E01",
+        "hospital": {
+          "E01": 1
+        },
         "nombreEstablecimiento": "Hospital Regional de Antofagasta"
       },
     "fecha": "2021-06-08",
@@ -104,6 +131,9 @@
       {
         "numero": 2,
         "codigoEstablecimiento": "E01",
+        "hospital": {
+          "E01": 1
+        },
         "nombreEstablecimiento": "Hospital Regional de Antofagasta"
       },
     "fecha": "2021-06-08",
@@ -115,6 +145,9 @@
       {
         "numero": 2,
         "codigoEstablecimiento": "E01",
+        "hospital": {
+          "E01": 1
+        },
         "nombreEstablecimiento": "Hospital Regional de Antofagasta"
       },
     "fecha": "2021-06-06",
@@ -127,6 +160,9 @@
       {
         "numero": 1,
         "codigoEstablecimiento": "E01",
+        "hospital": {
+          "E01": 1
+        },
         "nombreEstablecimiento": "Hospital Regional de Antofagasta"
       },
     "fecha": "2021-07-30",

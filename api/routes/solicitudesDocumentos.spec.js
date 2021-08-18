@@ -59,11 +59,17 @@ describe("Endpoints solicitudes documentos", () => {
               {
                 numero: 1,
                 codigoEstablecimiento: "E01",
+                hospital: {
+                  E01: 1
+                },
                 nombreEstablecimiento: "Hospital Regional de Antofagasta",
               },
               {
                 numero: 5,
                 codigoEstablecimiento: "E02",
+                hospital: {
+                  E02: 1
+                },
                 nombreEstablecimiento: "Hospital de Calama",
               },
             ],
@@ -99,11 +105,17 @@ describe("Endpoints solicitudes documentos", () => {
               {
                 numero: 1,
                 codigoEstablecimiento: "E01",
+                hospital: {
+                  E01: 1
+                },
                 nombreEstablecimiento: "Hospital Regional de Antofagasta",
               },
               {
                 numero: 5,
                 codigoEstablecimiento: "E02",
+                hospital: {
+                  E02: 1
+                },
                 nombreEstablecimiento: "Hospital de Calama",
               },
             ],
@@ -139,11 +151,17 @@ describe("Endpoints solicitudes documentos", () => {
               {
                 numero: 1,
                 codigoEstablecimiento: "E01",
+                hospital: {
+                  E01: 1
+                },
                 nombreEstablecimiento: "Hospital Regional de Antofagasta",
               },
               {
                 numero: 5,
                 codigoEstablecimiento: "E02",
+                hospital: {
+                  E02: 1
+                },
                 nombreEstablecimiento: "Hospital de Calama",
               },
             ],
@@ -178,11 +196,17 @@ describe("Endpoints solicitudes documentos", () => {
               {
                 numero: 1,
                 codigoEstablecimiento: "E01",
+                hospital: {
+                  E01: 1
+                },
                 nombreEstablecimiento: "Hospital Regional de Antofagasta",
               },
               {
                 numero: 5,
                 codigoEstablecimiento: "E02",
+                hospital: {
+                  E02: 1
+                },
                 nombreEstablecimiento: "Hospital de Calama",
               },
             ],
@@ -217,11 +241,17 @@ describe("Endpoints solicitudes documentos", () => {
               {
                 numero: 1,
                 codigoEstablecimiento: "E01",
+                hospital: {
+                  E01: 1
+                },
                 nombreEstablecimiento: "Hospital Regional de Antofagasta",
               },
               {
                 numero: 5,
                 codigoEstablecimiento: "E02",
+                hospital: {
+                  E02: 1
+                },
                 nombreEstablecimiento: "Hospital de Calama",
               },
             ],
@@ -273,11 +303,17 @@ describe("Endpoints solicitudes documentos", () => {
             {
               numero: 1,
               codigoEstablecimiento: "E01",
+              hospital: {
+                E01: 1
+              },
               nombreEstablecimiento: "Hospital Regional de Antofagasta",
             },
             {
               numero: 5,
               codigoEstablecimiento: "E02",
+              hospital: {
+                E02: 1
+              },
               nombreEstablecimiento: "Hospital de Calama",
             },
           ],
@@ -309,11 +345,17 @@ describe("Endpoints solicitudes documentos", () => {
             {
               numero: 1,
               codigoEstablecimiento: "E01",
+              hospital: {
+                E01: 1
+              },
               nombreEstablecimiento: "Hospital Regional de Antofagasta",
             },
             {
               numero: 5,
               codigoEstablecimiento: "E02",
+              hospital: {
+                E02: 1
+              },
               nombreEstablecimiento: "Hospital de Calama",
             },
           ],
@@ -329,6 +371,9 @@ describe("Endpoints solicitudes documentos", () => {
         numeroPaciente: {
           numero: 1,
           codigoEstablecimiento: "E01",
+          hospital: {
+            E01: 1
+          },
           nombreEstablecimiento: "Hospital Regional de Antofagasta",
         },
         tipoDocumento: newSolicitudDocumento.tipoDocumento,
@@ -392,11 +437,17 @@ describe("Endpoints solicitudes documentos", () => {
             {
               numero: 1,
               codigoEstablecimiento: "E01",
+              hospital: {
+                E01: 1
+              },
               nombreEstablecimiento: "Hospital Regional de Antofagasta",
             },
             {
               numero: 5,
               codigoEstablecimiento: "E02",
+              hospital: {
+                E02: 1
+              },
               nombreEstablecimiento: "Hospital de Calama",
             },
           ],
@@ -420,11 +471,17 @@ describe("Endpoints solicitudes documentos", () => {
             {
               numero: 1,
               codigoEstablecimiento: "E01",
+              hospital: {
+                E01: 1
+              },
               nombreEstablecimiento: "Hospital Regional de Antofagasta",
             },
             {
               numero: 5,
               codigoEstablecimiento: "E02",
+              hospital: {
+                E02: 1
+              },
               nombreEstablecimiento: "Hospital de Calama",
             },
           ],
@@ -448,11 +505,17 @@ describe("Endpoints solicitudes documentos", () => {
             {
               numero: 1,
               codigoEstablecimiento: "E01",
+              hospital: {
+                E01: 1
+              },
               nombreEstablecimiento: "Hospital Regional de Antofagasta",
             },
             {
               numero: 5,
               codigoEstablecimiento: "E02",
+              hospital: {
+                E02: 1
+              },
               nombreEstablecimiento: "Hospital de Calama",
             },
           ],
@@ -506,11 +569,17 @@ describe("Endpoints solicitudes documentos", () => {
             {
               numero: 1,
               codigoEstablecimiento: "E01",
+              hospital: {
+                E01: 1
+              },
               nombreEstablecimiento: "Hospital Regional de Antofagasta",
             },
             {
               numero: 5,
               codigoEstablecimiento: "E02",
+              hospital: {
+                E02: 1
+              },
               nombreEstablecimiento: "Hospital de Calama",
             },
           ],
@@ -532,11 +601,17 @@ describe("Endpoints solicitudes documentos", () => {
             {
               numero: 1,
               codigoEstablecimiento: "E01",
+              hospital: {
+                E01: 1
+              },
               nombreEstablecimiento: "Hospital Regional de Antofagasta",
             },
             {
               numero: 5,
               codigoEstablecimiento: "E02",
+              hospital: {
+                E02: 1
+              },
               nombreEstablecimiento: "Hospital de Calama",
             },
           ],
