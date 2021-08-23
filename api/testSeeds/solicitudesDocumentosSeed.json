@@ -2,15 +2,7 @@
   {
     "correlativoSolicitud": 5,
     "anio": 2021,
-    "numeroPaciente": 
-      {
-        "numero": 1,
-        "codigoEstablecimiento": "E01",
-        "hospital": {
-          "E01": 1
-        },
-        "nombreEstablecimiento": "Hospital Regional de Antofagasta"
-      },
+    "numeroPaciente":  1,
     "correlativoDocumento": "2",
     "tipoDocumento": "DAU",
     "estado": "EN_PROCESO"
@@ -18,15 +10,7 @@
   {
     "correlativoSolicitud": 0,
     "anio": 0,
-    "numeroPaciente": 
-      {
-        "numero": 1,
-        "codigoEstablecimiento": "E01",
-        "hospital": {
-          "E01": 1
-        },
-        "nombreEstablecimiento": "Hospital Regional de Antofagasta"
-      },
+    "numeroPaciente":  1,
     "correlativoDocumento": "1",
     "tipoDocumento": "EPICRISIS",
     "estado": "PENDIENTE"
@@ -34,15 +18,7 @@
   {
     "correlativoSolicitud": 4,
     "anio": 2021,
-    "numeroPaciente": 
-      {
-        "numero": 2,
-        "codigoEstablecimiento": "E01",
-        "hospital": {
-          "E01": 1
-        },
-        "nombreEstablecimiento": "Hospital Regional de Antofagasta"
-      },
+    "numeroPaciente":  2,
     "correlativoDocumento": "1",
     "tipoDocumento": "DAU",
     "estado": "EN_PROCESO"
@@ -50,15 +26,7 @@
   {
     "correlativoSolicitud": 2,
     "anio": 2021,
-    "numeroPaciente": 
-      {
-        "numero": 2,
-        "codigoEstablecimiento": "E02",
-        "hospital": {
-          "E02": 1
-        },
-        "nombreEstablecimiento": "Hospital de Calama"
-      },
+    "numeroPaciente": 2,
     "correlativoDocumento": "1",
     "tipoDocumento": "DAU",
     "estado": "EN_PROCESO"

@@ -37,8 +37,12 @@ exports.validateBodySolicitud = async (req, res, next) => {
 
 exports.validateDuplicationSolicitud = async (req, res, next) => {
   try {
-    const {tipoDocumento, correlativoDocumento } = req.body;
-    const filter = { numeroPaciente:{ $in: req.numerosPaciente }, tipoDocumento, correlativoDocumento };
+    const { tipoDocumento, correlativoDocumento } = req.body;
+    const filter = {
+      numeroPaciente: req.numeroPaciente,
+      tipoDocumento,
+      correlativoDocumento,
+    };
     const solicitudExistente = await SolicitudesDocumentos.findOne(
       filter
     ).exec();

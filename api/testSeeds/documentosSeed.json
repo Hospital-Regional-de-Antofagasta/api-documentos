@@ -1,170 +1,74 @@
 [
   {
-    "numeroPaciente": 
-      {
-        "numero": 1,
-        "codigoEstablecimiento": "E01",
-        "hospital": {
-          "E01": 1
-        },
-        "nombreEstablecimiento": "Hospital Regional de Antofagasta"
-      },
+    "numeroPaciente": 1,
     "fecha": "2021-06-01",
     "correlativo": "1",
     "tipo": "DAU"
   },
   {
-    "numeroPaciente": 
-      {
-        "numero": 1,
-        "codigoEstablecimiento": "E01",
-        "hospital": {
-          "E01": 1
-        },
-        "nombreEstablecimiento": "Hospital Regional de Antofagasta"
-      },
+    "numeroPaciente": 1,
     "fecha": "2020-01-08",
     "correlativo": "10",
     "tipo": "DAU"
   },
   {
-    "numeroPaciente": 
-      {
-        "numero": 1,
-        "codigoEstablecimiento": "E01",
-        "hospital": {
-          "E01": 1
-        },
-        "nombreEstablecimiento": "Hospital Regional de Antofagasta"
-      },
+    "numeroPaciente": 1,
     "fecha": "2020-02-08",
     "correlativo": "9",
     "tipo": "DAU"
   },
   {
-    "numeroPaciente": 
-      {
-        "numero": 1,
-        "codigoEstablecimiento": "E01",
-        "hospital": {
-          "E01": 1
-        },
-        "nombreEstablecimiento": "Hospital Regional de Antofagasta"
-      },
+    "numeroPaciente": 1,
     "fecha": "2020-03-08",
     "correlativo": "8",
     "tipo": "DAU"
   },
   {
-    "numeroPaciente": 
-      {
-        "numero": 1,
-        "codigoEstablecimiento": "E01",
-        "hospital": {
-          "E01": 1
-        },
-        "nombreEstablecimiento": "Hospital Regional de Antofagasta"
-      },
+    "numeroPaciente": 1,
     "fecha": "2020-04-08",
     "correlativo": "7",
     "tipo": "DAU"
   },
   {
-    "numeroPaciente": 
-      {
-        "numero": 1,
-        "codigoEstablecimiento": "E01",
-        "hospital": {
-          "E01": 1
-        },
-        "nombreEstablecimiento": "Hospital Regional de Antofagasta"
-      },
+    "numeroPaciente": 1,
     "fecha": "2020-05-08",
     "correlativo": "6",
     "tipo": "DAU"
   },
   {
-    "numeroPaciente": 
-      {
-        "numero": 2,
-        "codigoEstablecimiento": "E01",
-        "hospital": {
-          "E01": 1
-        },
-        "nombreEstablecimiento": "Hospital Regional de Antofagasta"
-      },
+    "numeroPaciente": 2,
     "fecha": "2021-06-07",
     "correlativo": "5",
     "tipo": "DAU"
   },
   {
-    "_id":"000000000003",
-    "numeroPaciente": 
-      {
-        "numero": 1,
-        "codigoEstablecimiento": "E01",
-        "hospital": {
-          "E01": 1
-        },
-        "nombreEstablecimiento": "Hospital Regional de Antofagasta"
-      },
+    "_id": "000000000003",
+    "numeroPaciente": 1,
     "fecha": "2021-06-07",
     "correlativo": "2",
     "tipo": "DAU"
   },
   {
-    "numeroPaciente": 
-      {
-        "numero": 1,
-        "codigoEstablecimiento": "E01",
-        "hospital": {
-          "E01": 1
-        },
-        "nombreEstablecimiento": "Hospital Regional de Antofagasta"
-      },
+    "numeroPaciente": 1,
     "fecha": "2021-06-08",
     "correlativo": "1",
     "tipo": "EPICRISIS"
   },
   {
-    "numeroPaciente": 
-      {
-        "numero": 2,
-        "codigoEstablecimiento": "E01",
-        "hospital": {
-          "E01": 1
-        },
-        "nombreEstablecimiento": "Hospital Regional de Antofagasta"
-      },
+    "numeroPaciente": 2,
     "fecha": "2021-06-08",
     "correlativo": "2",
     "tipo": "EPICRISIS"
   },
   {
-    "numeroPaciente": 
-      {
-        "numero": 2,
-        "codigoEstablecimiento": "E01",
-        "hospital": {
-          "E01": 1
-        },
-        "nombreEstablecimiento": "Hospital Regional de Antofagasta"
-      },
+    "numeroPaciente": 2,
     "fecha": "2021-06-06",
     "correlativo": "4",
     "tipo": "DAU"
   },
   {
     "_id": "000000000002",
-    "numeroPaciente": 
-      {
-        "numero": 1,
-        "codigoEstablecimiento": "E01",
-        "hospital": {
-          "E01": 1
-        },
-        "nombreEstablecimiento": "Hospital Regional de Antofagasta"
-      },
+    "numeroPaciente": 1,
     "fecha": "2021-07-30",
     "correlativo": "3",
     "tipo": "DAU"

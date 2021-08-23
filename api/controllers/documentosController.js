@@ -5,8 +5,8 @@ exports.getDocumentos = async (req, res) => {
   try {
     const tipo = req.query.tipo;
     const filter = tipo
-      ? { numeroPaciente: { $in: req.numerosPaciente }, tipo }
-      : { numeroPaciente: { $in: req.numerosPaciente } };
+      ? { numeroPaciente: req.numeroPaciente, tipo }
+      : { numeroPaciente: req.numeroPaciente };
 
     const cantidad = parseInt(req.query.cantidad);
 

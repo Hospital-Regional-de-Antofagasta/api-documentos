@@ -55,24 +55,7 @@ describe("Endpoints solicitudes documentos", () => {
         token = jwt.sign(
           {
             _id: "000000000000",
-            numerosPaciente: [
-              {
-                numero: 1,
-                codigoEstablecimiento: "E01",
-                hospital: {
-                  E01: 1
-                },
-                nombreEstablecimiento: "Hospital Regional de Antofagasta",
-              },
-              {
-                numero: 5,
-                codigoEstablecimiento: "E02",
-                hospital: {
-                  E02: 1
-                },
-                nombreEstablecimiento: "Hospital de Calama",
-              },
-            ],
+            numeroPaciente: 1,
           },
           secreto
         );
@@ -101,24 +84,7 @@ describe("Endpoints solicitudes documentos", () => {
         token = jwt.sign(
           {
             _id: "000000000000",
-            numerosPaciente: [
-              {
-                numero: 1,
-                codigoEstablecimiento: "E01",
-                hospital: {
-                  E01: 1
-                },
-                nombreEstablecimiento: "Hospital Regional de Antofagasta",
-              },
-              {
-                numero: 5,
-                codigoEstablecimiento: "E02",
-                hospital: {
-                  E02: 1
-                },
-                nombreEstablecimiento: "Hospital de Calama",
-              },
-            ],
+            numeroPaciente: 1,
           },
           secreto
         );
@@ -147,24 +113,7 @@ describe("Endpoints solicitudes documentos", () => {
         token = jwt.sign(
           {
             _id: "000000000000",
-            numerosPaciente: [
-              {
-                numero: 1,
-                codigoEstablecimiento: "E01",
-                hospital: {
-                  E01: 1
-                },
-                nombreEstablecimiento: "Hospital Regional de Antofagasta",
-              },
-              {
-                numero: 5,
-                codigoEstablecimiento: "E02",
-                hospital: {
-                  E02: 1
-                },
-                nombreEstablecimiento: "Hospital de Calama",
-              },
-            ],
+            numeroPaciente: 1,
           },
           secreto
         );
@@ -192,24 +141,7 @@ describe("Endpoints solicitudes documentos", () => {
         token = jwt.sign(
           {
             _id: "000000000000",
-            numerosPaciente: [
-              {
-                numero: 1,
-                codigoEstablecimiento: "E01",
-                hospital: {
-                  E01: 1
-                },
-                nombreEstablecimiento: "Hospital Regional de Antofagasta",
-              },
-              {
-                numero: 5,
-                codigoEstablecimiento: "E02",
-                hospital: {
-                  E02: 1
-                },
-                nombreEstablecimiento: "Hospital de Calama",
-              },
-            ],
+            numeroPaciente: 1,
           },
           secreto
         );
@@ -237,24 +169,7 @@ describe("Endpoints solicitudes documentos", () => {
         token = jwt.sign(
           {
             _id: "000000000000",
-            numerosPaciente: [
-              {
-                numero: 1,
-                codigoEstablecimiento: "E01",
-                hospital: {
-                  E01: 1
-                },
-                nombreEstablecimiento: "Hospital Regional de Antofagasta",
-              },
-              {
-                numero: 5,
-                codigoEstablecimiento: "E02",
-                hospital: {
-                  E02: 1
-                },
-                nombreEstablecimiento: "Hospital de Calama",
-              },
-            ],
+            numeroPaciente: 1,
           },
           secreto
         );
@@ -299,24 +214,7 @@ describe("Endpoints solicitudes documentos", () => {
       token = jwt.sign(
         {
           _id: "000000000000",
-          numerosPaciente: [
-            {
-              numero: 1,
-              codigoEstablecimiento: "E01",
-              hospital: {
-                E01: 1
-              },
-              nombreEstablecimiento: "Hospital Regional de Antofagasta",
-            },
-            {
-              numero: 5,
-              codigoEstablecimiento: "E02",
-              hospital: {
-                E02: 1
-              },
-              nombreEstablecimiento: "Hospital de Calama",
-            },
-          ],
+          numeroPaciente: 1,
         },
         secreto
       );
@@ -341,24 +239,7 @@ describe("Endpoints solicitudes documentos", () => {
       token = jwt.sign(
         {
           _id: "000000000000",
-          numerosPaciente: [
-            {
-              numero: 1,
-              codigoEstablecimiento: "E01",
-              hospital: {
-                E01: 1
-              },
-              nombreEstablecimiento: "Hospital Regional de Antofagasta",
-            },
-            {
-              numero: 5,
-              codigoEstablecimiento: "E02",
-              hospital: {
-                E02: 1
-              },
-              nombreEstablecimiento: "Hospital de Calama",
-            },
-          ],
+          numeroPaciente: 1,
         },
         secreto
       );
@@ -368,14 +249,7 @@ describe("Endpoints solicitudes documentos", () => {
         .send(newSolicitudDocumento);
 
       const filter = {
-        numeroPaciente: {
-          numero: 1,
-          codigoEstablecimiento: "E01",
-          hospital: {
-            E01: 1
-          },
-          nombreEstablecimiento: "Hospital Regional de Antofagasta",
-        },
+        numeroPaciente: 1,
         tipoDocumento: newSolicitudDocumento.tipoDocumento,
         correlativoDocumento: newSolicitudDocumento.correlativoDocumento,
       };
@@ -395,11 +269,7 @@ describe("Endpoints solicitudes documentos", () => {
         },
       });
 
-      expect(solicitudCreada.numeroPaciente.numero).toBeFalsy();
-      expect(solicitudCreada.numeroPaciente.codigoEstablecimiento).toBeFalsy();
-      expect(solicitudCreada.numeroPaciente.nombreEstablecimiento).toBe(
-        "Hospital Regional de Antofagasta"
-      );
+      expect(solicitudCreada.numeroPaciente).toBeFalsy();
       expect(solicitudCreada.correlativoDocumento).toBe(
         newSolicitudDocumento.correlativoDocumento
       );
@@ -433,24 +303,7 @@ describe("Endpoints solicitudes documentos", () => {
       token = jwt.sign(
         {
           _id: "000000000000",
-          numerosPaciente: [
-            {
-              numero: 1,
-              codigoEstablecimiento: "E01",
-              hospital: {
-                E01: 1
-              },
-              nombreEstablecimiento: "Hospital Regional de Antofagasta",
-            },
-            {
-              numero: 5,
-              codigoEstablecimiento: "E02",
-              hospital: {
-                E02: 1
-              },
-              nombreEstablecimiento: "Hospital de Calama",
-            },
-          ],
+          numeroPaciente: 1,
         },
         secreto
       );
@@ -467,24 +320,7 @@ describe("Endpoints solicitudes documentos", () => {
       token = jwt.sign(
         {
           _id: "000000000000",
-          numerosPaciente: [
-            {
-              numero: 1,
-              codigoEstablecimiento: "E01",
-              hospital: {
-                E01: 1
-              },
-              nombreEstablecimiento: "Hospital Regional de Antofagasta",
-            },
-            {
-              numero: 5,
-              codigoEstablecimiento: "E02",
-              hospital: {
-                E02: 1
-              },
-              nombreEstablecimiento: "Hospital de Calama",
-            },
-          ],
+          numeroPaciente: 1,
         },
         secreto
       );
@@ -501,24 +337,7 @@ describe("Endpoints solicitudes documentos", () => {
       token = jwt.sign(
         {
           _id: "000000000000",
-          numerosPaciente: [
-            {
-              numero: 1,
-              codigoEstablecimiento: "E01",
-              hospital: {
-                E01: 1
-              },
-              nombreEstablecimiento: "Hospital Regional de Antofagasta",
-            },
-            {
-              numero: 5,
-              codigoEstablecimiento: "E02",
-              hospital: {
-                E02: 1
-              },
-              nombreEstablecimiento: "Hospital de Calama",
-            },
-          ],
+          numeroPaciente: 1,
         },
         secreto
       );
@@ -565,24 +384,7 @@ describe("Endpoints solicitudes documentos", () => {
       token = jwt.sign(
         {
           _id: "000000000000",
-          numerosPaciente: [
-            {
-              numero: 1,
-              codigoEstablecimiento: "E01",
-              hospital: {
-                E01: 1
-              },
-              nombreEstablecimiento: "Hospital Regional de Antofagasta",
-            },
-            {
-              numero: 5,
-              codigoEstablecimiento: "E02",
-              hospital: {
-                E02: 1
-              },
-              nombreEstablecimiento: "Hospital de Calama",
-            },
-          ],
+          numeroPaciente: 1,
         },
         secreto
       );
@@ -597,24 +399,7 @@ describe("Endpoints solicitudes documentos", () => {
       token = jwt.sign(
         {
           _id: "000000000000",
-          numerosPaciente: [
-            {
-              numero: 1,
-              codigoEstablecimiento: "E01",
-              hospital: {
-                E01: 1
-              },
-              nombreEstablecimiento: "Hospital Regional de Antofagasta",
-            },
-            {
-              numero: 5,
-              codigoEstablecimiento: "E02",
-              hospital: {
-                E02: 1
-              },
-              nombreEstablecimiento: "Hospital de Calama",
-            },
-          ],
+          numeroPaciente: 1,
         },
         secreto
       );

@@ -5,7 +5,7 @@ const { getMensajes } = require("../config");
 exports.createSolicitudDocumento = async (req, res) => {
   try {
     const documento = await Documentos.findById(req.body.idDocumento).select(
-      "numeroPaciente.numero numeroPaciente.codigoEstablecimiento numeroPaciente.hospital numeroPaciente.nombreEstablecimiento"
+      "numeroPaciente"
     );
     const solicitud = req.body;
     solicitud.numeroPaciente = documento.numeroPaciente;
@@ -28,7 +28,7 @@ exports.checkExistsSolicitudDocumento = async (req, res) => {
   try {
     const documento = await Documentos.findById(req.params.idDocumento)
       .select(
-        "numeroPaciente.numero numeroPaciente.codigoEstablecimiento numeroPaciente.hospital numeroPaciente.nombreEstablecimiento tipo correlativo"
+        "numeroPaciente tipo correlativo"
       )
       .exec();
     const solicitud = await SolicitudesDocumentos.findOne({

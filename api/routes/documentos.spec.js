@@ -11,7 +11,7 @@ const configSeed = require("../testSeeds/configSeed.json");
 const request = supertest(app);
 
 const secreto = process.env.JWT_SECRET;
-let token
+let token;
 
 beforeEach(async () => {
   await mongoose.disconnect();
@@ -52,24 +52,7 @@ describe("Endpoints documentos", () => {
       token = jwt.sign(
         {
           _id: "000000000000",
-          numerosPaciente: [
-            {
-              numero: 1,
-              codigoEstablecimiento: "E01",
-              hospital: {
-                E01: 1
-              },
-              nombreEstablecimiento: "Hospital Regional de Antofagasta",
-            },
-            {
-              numero: 5,
-              codigoEstablecimiento: "E02",
-              hospital: {
-                E02: 1
-              },
-              nombreEstablecimiento: "Hospital de Calama",
-            },
-          ],
+          numeroPaciente: 1,
         },
         secreto
       );
@@ -84,24 +67,7 @@ describe("Endpoints documentos", () => {
       token = jwt.sign(
         {
           _id: "000000000000",
-          numerosPaciente: [
-            {
-              numero: 3,
-              codigoEstablecimiento: "E01",
-              hospital: {
-                E01: 1
-              },
-              nombreEstablecimiento: "Hospital Regional de Antofagasta",
-            },
-            {
-              numero: 2,
-              codigoEstablecimiento: "E03",
-              hospital: {
-                E03: 1
-              },
-              nombreEstablecimiento: "Hospital de Mejillones",
-            },
-          ],
+          numeroPaciente: 3,
         },
         secreto
       );
@@ -116,24 +82,7 @@ describe("Endpoints documentos", () => {
       token = jwt.sign(
         {
           _id: "000000000000",
-          numerosPaciente: [
-            {
-              numero: 1,
-              codigoEstablecimiento: "E01",
-              hospital: {
-                E01: 1
-              },
-              nombreEstablecimiento: "Hospital Regional de Antofagasta",
-            },
-            {
-              numero: 5,
-              codigoEstablecimiento: "E02",
-              hospital: {
-                E02: 1
-              },
-              nombreEstablecimiento: "Hospital de Calama",
-            },
-          ],
+          numeroPaciente: 1,
         },
         secreto
       );
@@ -142,14 +91,7 @@ describe("Endpoints documentos", () => {
         .set("Authorization", token);
 
       const documentosDauObtenidos = await Documentos.find({
-        numeroPaciente: {
-          numero: 1,
-          codigoEstablecimiento: "E01",
-          hospital: {
-            E01: 1
-          },
-          nombreEstablecimiento: "Hospital Regional de Antofagasta",
-        },
+        numeroPaciente: 1,
         tipo: "DAU",
       }).exec();
 
@@ -162,24 +104,7 @@ describe("Endpoints documentos", () => {
       token = jwt.sign(
         {
           _id: "000000000000",
-          numerosPaciente: [
-            {
-              numero: 1,
-              codigoEstablecimiento: "E01",
-              hospital: {
-                E01: 1
-              },
-              nombreEstablecimiento: "Hospital Regional de Antofagasta",
-            },
-            {
-              numero: 5,
-              codigoEstablecimiento: "E02",
-              hospital: {
-                E02: 1
-              },
-              nombreEstablecimiento: "Hospital de Calama",
-            },
-          ],
+          numeroPaciente: 1,
         },
         secreto
       );
@@ -194,24 +119,7 @@ describe("Endpoints documentos", () => {
       token = jwt.sign(
         {
           _id: "000000000000",
-          numerosPaciente: [
-            {
-              numero: 1,
-              codigoEstablecimiento: "E01",
-              hospital: {
-                E01: 1
-              },
-              nombreEstablecimiento: "Hospital Regional de Antofagasta",
-            },
-            {
-              numero: 5,
-              codigoEstablecimiento: "E02",
-              hospital: {
-                E02: 1
-              },
-              nombreEstablecimiento: "Hospital de Calama",
-            },
-          ],
+          numeroPaciente: 1,
         },
         secreto
       );
