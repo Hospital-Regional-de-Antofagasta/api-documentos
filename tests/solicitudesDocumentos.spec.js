@@ -1,14 +1,14 @@
 const supertest = require("supertest");
-const app = require("../app");
+const app = require("../api/app");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
-const Documentos = require("../models/documentos");
-const SolicitudesDocumentos = require("../models/SolicitudesDocumentos");
-const documentosSeed = require("../testSeeds/documentosSeed.json");
-const solicitudesDocumentosSeed = require("../testSeeds/solicitudesDocumentosSeed.json");
-const { getMensajes } = require("../config");
-const ConfigApiDocumentos = require("../models/ConfigApiDocumentos");
-const configSeed = require("../testSeeds/configSeed.json");
+const Documentos = require("../api/models/documentos");
+const SolicitudesDocumentos = require("../api/models/SolicitudesDocumentos");
+const documentosSeed = require("./testSeeds/documentosSeed.json");
+const solicitudesDocumentosSeed = require("./testSeeds/solicitudesDocumentosSeed.json");
+const { getMensajes } = require("../api/config");
+const ConfigApiDocumentos = require("../api/models/ConfigApiDocumentos");
+const configSeed = require("./testSeeds/configSeed.json");
 
 const request = supertest(app);
 

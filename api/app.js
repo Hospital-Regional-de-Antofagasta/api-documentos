@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
@@ -16,5 +17,14 @@ mongoose.connect(process.env.MONGO_URI, {
 app.use("/v1/documentos-paciente", documentos);
 
 app.use("/v1/documentos-paciente/solicitudes", solicitudesDocumentos);
+
+if (require.main === module) { // true if file is executed
+  process.on("SIGINT",function (){
+    process.exit();
+  });
+  app.listen(port, () => {
+    console.log(`App listening at http://${localhost}:${port}`)
+  })
+}
 
 module.exports = app;
