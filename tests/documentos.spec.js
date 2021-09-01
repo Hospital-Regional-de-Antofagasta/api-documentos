@@ -15,7 +15,7 @@ let token;
 
 beforeEach(async () => {
   await mongoose.disconnect();
-  await mongoose.connect(`${process.env.MONGO_URI_TEST}documentos_test`, {
+  await mongoose.connect(`${process.env.MONGO_URI}/documentos_test`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
