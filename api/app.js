@@ -22,6 +22,10 @@ app.use("/v1/documentos-paciente", documentos);
 
 app.use("/v1/documentos-paciente/solicitudes", solicitudesDocumentos);
 
+app.get("/v1/documentos-paciente/health", (req, res) => {
+  res.status(200).send("ready");
+});
+
 if (require.main === module) { // true if file is executed
   process.on("SIGINT",function (){
     process.exit();
