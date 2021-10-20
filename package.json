@@ -14,7 +14,7 @@
     "jest": "^27.0.6",
     "joi": "^17.4.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.12.15"
+    "mongoose": "^6.0.11"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.3",
