@@ -1,12 +1,14 @@
 const Joi = require("joi");
 const SolicitudesDocumentos = require("../models/SolicitudesDocumentos");
+const Documentos = require("../models/Documentos");
 const { getMensajes } = require("../config");
 
 exports.validateBodySolicitud = async (req, res, next) => {
   try {
     const schema = Joi.object({
       idDocumento: Joi.string().required(),
-      correlativoDocumento: Joi.string().required(),
+      codigoEstablecimiento: Joi.string().required(),
+      identificadorDocumento: Joi.string().required(),
       tipoDocumento: Joi.string().required(),
     });
 
@@ -35,13 +37,16 @@ exports.validateBodySolicitud = async (req, res, next) => {
   }
 };
 
-exports.validateDuplicationSolicitud = async (req, res, next) => {
+exports.validateDuplicatedSolicitud = async (req, res, next) => {
   try {
-    const { tipoDocumento, correlativoDocumento } = req.body;
+    const { tipoDocumento, identificadorDocumento, codigoEstablecimiento } =
+      req.body;
+    const rutPaciente = req.rut;
     const filter = {
-      numeroPaciente: req.numeroPaciente,
+      rutPaciente,
+      codigoEstablecimiento,
       tipoDocumento,
-      correlativoDocumento,
+      identificadorDocumento,
     };
     const solicitudExistente = await SolicitudesDocumentos.findOne(
       filter
@@ -50,6 +55,24 @@ exports.validateDuplicationSolicitud = async (req, res, next) => {
       return res
         .status(400)
         .send({ respuesta: await getMensajes("badRequest") });
+    next();
+  } catch (error) {
+    res.status(500).send({ respuesta: await getMensajes("serverError") });
+  }
+};
+
+exports.validateDocumentExists = async (req, res, next) => {
+  try {
+    let idDocumento = req.body.idDocumento;
+    if (!idDocumento) idDocumento = req.params.idDocumento;
+    const documento = await Documentos.findById(idDocumento).select(
+      "rutPaciente tipo identificadorDocumento"
+    );
+    if (!documento)
+      return res
+        .status(400)
+        .send({ respuesta: await getMensajes("badRequest") });
+    req.documento = documento;
     next();
   } catch (error) {
     res.status(500).send({ respuesta: await getMensajes("serverError") });
