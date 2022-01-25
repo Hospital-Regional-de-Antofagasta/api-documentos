@@ -41,7 +41,7 @@ exports.validateDuplicatedSolicitud = async (req, res, next) => {
   try {
     const { tipoDocumento, identificadorDocumento, codigoEstablecimiento } =
       req.body;
-    const rutPaciente = req.rut;
+    const rutPaciente = req.rutPaciente;
     const filter = {
       rutPaciente,
       codigoEstablecimiento,
