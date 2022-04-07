@@ -5,10 +5,10 @@ const SolicitudesDocumentos = mongoose.model(
   "solicitudes_documentos",
   new Schema(
     {
-      codigoEstablecimiento: { type: String, require: true },
-      rutPaciente: { type: String, require: true, select: false },
-      identificadorDocumento: { type: String, require: true },
-      tipoDocumento: { type: String, require: true },
+      codigoEstablecimiento: { type: String, required: true },
+      rutPaciente: { type: String, required: true, select: false },
+      identificadorDocumento: { type: String, required: true },
+      tipoDocumento: { type: String, required: true },
       correlativoSolicitud: {
         type: Number,
         default: 0,
@@ -17,7 +17,8 @@ const SolicitudesDocumentos = mongoose.model(
         type: Number,
         default: 0,
       },
-      estado: { // Posibles estados: PENDIENTE, EN_PROCESO
+      estado: {
+        // Posibles estados: PENDIENTE, EN_PROCESO
         type: String,
         default: "PENDIENTE",
       },
