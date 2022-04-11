@@ -5,10 +5,13 @@ const Schema = mongoose.Schema;
 const Documentos = mongoose.model(
   "documento",
   new Schema({
-    numeroPaciente: { type: Number, require: true, select: false },
-    fecha: Date,
-    correlativo: String,
-    tipo: String,
+    correlativo: { type: Number, required: true },
+    identificadorDocumento: { type: String, required: true },
+    rutPaciente: { type: String, required: true, select: false },
+    tipo: { type: String, required: true },
+    fecha: { type: Date, required: true },
+    codigoEstablecimiento: { type: String, required: true },
+    nombreEstablecimiento: { type: String, required: true },
   }),
   "documentos"
 );

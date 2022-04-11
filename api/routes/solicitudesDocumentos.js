@@ -3,7 +3,8 @@ const solicitudesDocumentosController = require("../controllers/solicitudesDocum
 const { isAuthenticated } = require("../middleware/auth");
 const {
   validateBodySolicitud,
-  validateDuplicationSolicitud,
+  validateDuplicatedSolicitud,
+  validateDocumentExists,
 } = require("../middleware/validations");
 
 const router = express.Router();
@@ -12,13 +13,15 @@ router.post(
   "",
   isAuthenticated,
   validateBodySolicitud,
-  validateDuplicationSolicitud,
+  validateDocumentExists,
+  validateDuplicatedSolicitud,
   solicitudesDocumentosController.createSolicitudDocumento
 );
 
 router.get(
   "/existe/:idDocumento",
   isAuthenticated,
+  validateDocumentExists,
   solicitudesDocumentosController.checkExistsSolicitudDocumento
 );
 

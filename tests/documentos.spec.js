@@ -52,7 +52,7 @@ describe("Endpoints documentos", () => {
       token = jwt.sign(
         {
           _id: "000000000000",
-          numeroPaciente: 1,
+          rut: "11111111-1",
         },
         secreto
       );
@@ -67,7 +67,7 @@ describe("Endpoints documentos", () => {
       token = jwt.sign(
         {
           _id: "000000000000",
-          numeroPaciente: 3,
+          rut: "33333333-3",
         },
         secreto
       );
@@ -82,7 +82,7 @@ describe("Endpoints documentos", () => {
       token = jwt.sign(
         {
           _id: "000000000000",
-          numeroPaciente: 1,
+          rut: "11111111-1",
         },
         secreto
       );
@@ -91,7 +91,7 @@ describe("Endpoints documentos", () => {
         .set("Authorization", token);
 
       const documentosDauObtenidos = await Documentos.find({
-        numeroPaciente: 1,
+        rutPaciente: "11111111-1",
         tipo: "DAU",
       }).exec();
 
@@ -99,12 +99,13 @@ describe("Endpoints documentos", () => {
       expect(response.body.length).toBe(documentosDauObtenidos.length);
       expect(response.body[0].fecha > response.body[1].fecha).toBeTruthy();
       expect(response.body[1].fecha > response.body[2].fecha).toBeTruthy();
+      expect(response.body[2].fecha > response.body[3].fecha).toBeTruthy();
     });
     it("Should get documentos tipo EPICRISIS", async () => {
       token = jwt.sign(
         {
           _id: "000000000000",
-          numeroPaciente: 1,
+          rut: "11111111-1",
         },
         secreto
       );
@@ -119,7 +120,7 @@ describe("Endpoints documentos", () => {
       token = jwt.sign(
         {
           _id: "000000000000",
-          numeroPaciente: 1,
+          rut: "11111111-1",
         },
         secreto
       );

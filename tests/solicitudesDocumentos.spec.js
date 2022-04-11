@@ -38,13 +38,15 @@ afterEach(async () => {
 
 const existingSolicitudDocumento = {
   idDocumento: "000000000003",
-  correlativoDocumento: "2",
+  codigoEstablecimiento: "HRA",
+  identificadorDocumento: "8",
   tipoDocumento: "DAU",
 };
 
 const newSolicitudDocumento = {
   idDocumento: "000000000002",
-  correlativoDocumento: "3",
+  codigoEstablecimiento: "HRA",
+  identificadorDocumento: "12",
   tipoDocumento: "DAU",
 };
 
@@ -55,13 +57,14 @@ describe("Endpoints solicitudes documentos", () => {
         token = jwt.sign(
           {
             _id: "000000000000",
-            numeroPaciente: 1,
+            rut: "11111111-1",
           },
           secreto
         );
         const badSolicitudDocumento = {
-          correlativoDocumento: 11,
-          tipoDocumento: 1,
+          codigoEstablecimiento: "HRA",
+          identificadorDocumento: "1",
+          tipoDocumento: "DA",
         };
         const response = await request
           .post(`/v1/documentos-paciente/solicitudes`)
@@ -80,16 +83,17 @@ describe("Endpoints solicitudes documentos", () => {
           },
         });
       });
-      it("Should not create solicitud documento wrong correlativoDocumento", async () => {
+      it("Should not create solicitud documento wrong identificadorDocumento", async () => {
         token = jwt.sign(
           {
             _id: "000000000000",
-            numeroPaciente: 1,
+            rut: "11111111-1",
           },
           secreto
         );
         const badSolicitudDocumento = {
-          correlativoDocumento: 111,
+          codigoEstablecimiento: "HRA",
+          identificadorDocumento: "111",
           tipoDocumento: "DAU",
         };
         const response = await request
@@ -113,12 +117,13 @@ describe("Endpoints solicitudes documentos", () => {
         token = jwt.sign(
           {
             _id: "000000000000",
-            numeroPaciente: 1,
+            rut: "11111111-1",
           },
           secreto
         );
         const badSolicitudDocumento = {
-          correlativoDocumento: 11,
+          codigoEstablecimiento: "HRA",
+          identificadorDocumento: "1",
         };
         const response = await request
           .post(`/v1/documentos-paciente/solicitudes`)
@@ -137,15 +142,16 @@ describe("Endpoints solicitudes documentos", () => {
           },
         });
       });
-      it("Should not create solicitud documento without correlativoDocumento", async () => {
+      it("Should not create solicitud documento without identificadorDocumento", async () => {
         token = jwt.sign(
           {
             _id: "000000000000",
-            numeroPaciente: 1,
+            rut: "11111111-1",
           },
           secreto
         );
         const badSolicitudDocumento = {
+          codigoEstablecimiento: "HRA",
           tipoDocumento: "DAU",
         };
         const response = await request
@@ -169,7 +175,7 @@ describe("Endpoints solicitudes documentos", () => {
         token = jwt.sign(
           {
             _id: "000000000000",
-            numeroPaciente: 1,
+            rut: "11111111-1",
           },
           secreto
         );
@@ -210,11 +216,11 @@ describe("Endpoints solicitudes documentos", () => {
         },
       });
     });
-    it("Should not create solicitud documento if there is an equal solicitud pending", async () => {
+    it("Should not create solicitud documento if there is a pending solicitud for the same documento", async () => {
       token = jwt.sign(
         {
           _id: "000000000000",
-          numeroPaciente: 1,
+          rut: "11111111-1",
         },
         secreto
       );
@@ -239,7 +245,7 @@ describe("Endpoints solicitudes documentos", () => {
       token = jwt.sign(
         {
           _id: "000000000000",
-          numeroPaciente: 1,
+          rut: "11111111-1",
         },
         secreto
       );
@@ -249,9 +255,10 @@ describe("Endpoints solicitudes documentos", () => {
         .send(newSolicitudDocumento);
 
       const filter = {
-        numeroPaciente: 1,
+        rutPaciente: "11111111-1",
+        codigoEstablecimiento: "HRA",
         tipoDocumento: newSolicitudDocumento.tipoDocumento,
-        correlativoDocumento: newSolicitudDocumento.correlativoDocumento,
+        identificadorDocumento: newSolicitudDocumento.identificadorDocumento,
       };
       const solicitudCreada = await SolicitudesDocumentos.findOne(
         filter
@@ -269,9 +276,12 @@ describe("Endpoints solicitudes documentos", () => {
         },
       });
 
-      expect(solicitudCreada.numeroPaciente).toBeFalsy();
-      expect(solicitudCreada.correlativoDocumento).toBe(
-        newSolicitudDocumento.correlativoDocumento
+      expect(solicitudCreada.rutPaciente).toBeFalsy();
+      expect(solicitudCreada.codigoEstablecimiento).toBe(
+        newSolicitudDocumento.codigoEstablecimiento
+      );
+      expect(solicitudCreada.identificadorDocumento).toBe(
+        newSolicitudDocumento.identificadorDocumento
       );
       expect(solicitudCreada.tipoDocumento).toBe(
         newSolicitudDocumento.tipoDocumento
@@ -282,7 +292,7 @@ describe("Endpoints solicitudes documentos", () => {
     it("Should not check without token", async () => {
       const response = await request
         .get(
-          `/v1/documentos-paciente/solicitudes/existe/${newSolicitudDocumento.idDocumento}`
+          `/v1/documentos-paciente/solicitudes/existe/000000000002`
         )
         .set("Authorization", "no-token");
 
@@ -303,13 +313,13 @@ describe("Endpoints solicitudes documentos", () => {
       token = jwt.sign(
         {
           _id: "000000000000",
-          numeroPaciente: 1,
+          rut: "11111111-1",
         },
         secreto
       );
       const response = await request
         .get(
-          `/v1/documentos-paciente/solicitudes/existe/${newSolicitudDocumento.idDocumento}`
+          `/v1/documentos-paciente/solicitudes/existe/000000000002`
         )
         .set("Authorization", token);
 
@@ -320,13 +330,13 @@ describe("Endpoints solicitudes documentos", () => {
       token = jwt.sign(
         {
           _id: "000000000000",
-          numeroPaciente: 1,
+          rut: "11111111-1",
         },
         secreto
       );
       const response = await request
         .get(
-          `/v1/documentos-paciente/solicitudes/existe/${newSolicitudDocumento.idDocumento}`
+          `/v1/documentos-paciente/solicitudes/existe/000000000002`
         )
         .set("Authorization", token);
 
@@ -337,13 +347,13 @@ describe("Endpoints solicitudes documentos", () => {
       token = jwt.sign(
         {
           _id: "000000000000",
-          numeroPaciente: 1,
+          rut: "11111111-1",
         },
         secreto
       );
       const response = await request
         .get(
-          `/v1/documentos-paciente/solicitudes/existe/${existingSolicitudDocumento.idDocumento}`
+          `/v1/documentos-paciente/solicitudes/existe/000000000003`
         )
         .set("Authorization", token);
 
@@ -384,7 +394,7 @@ describe("Endpoints solicitudes documentos", () => {
       token = jwt.sign(
         {
           _id: "000000000000",
-          numeroPaciente: 1,
+          rut: "11111111-1",
         },
         secreto
       );
@@ -399,7 +409,7 @@ describe("Endpoints solicitudes documentos", () => {
       token = jwt.sign(
         {
           _id: "000000000000",
-          numeroPaciente: 1,
+          rut: "11111111-1",
         },
         secreto
       );
